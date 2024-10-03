@@ -33,7 +33,7 @@ jobs:
     steps:
 
       - name: "Checkout Lesson"
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: l10n_main
 
