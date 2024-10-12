@@ -161,7 +161,7 @@ a command you can hit <kbd>Esc</kbd> and RStudio will give you back the ">" prom
 
 ## ヒント：コマンドの取り消し
 
-RStudioではなく、コマンドラインからRを使う場合、 コマンドを取り消す場合、<kbd Esc</kbd の代わりに<kbd Ctrl</kbd +<kbd C</kbd を使う必要があります。これは、Macユーザーも同じです！ コマンドの取り消しは、不完全なコマンドを消す他にも使えます。
+RStudioではなく、コマンドラインからRを使う場合、 コマンドを取り消す場合、<kbd>Esc</kbd>の代わりに<kbd>Ctrl</kbd>+<kbd>C</kbd>を使う必要があります。これは、Macユーザーも同じです！ コマンドの取り消しは、不完全なコマンドを消す他にも使えます。
 
 走っているコードを止めてとRに伝えるにも使え（例えば、予想よりも かなり長くかかっている場合）、その他にも、今書いているコードを 消去するにも使えます。
 
@@ -608,7 +608,7 @@ function (name, pos = -1L, envir = as.environment(pos), all.names = FALSE,
     }
     else all.names
 }
-<bytecode: 0x557fc6ecee50>
+<bytecode: 0x556031431dd0>
 <environment: namespace:base>
 ```
 
