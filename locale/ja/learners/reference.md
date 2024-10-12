@@ -10,11 +10,11 @@ title: Reference
   (Ctrl+C) if you're using R from the shell.
 - Basic arithmetic operations follow standard order of precedence:
   - Brackets: `(`, `)`
-  - Exponents: `^` or `**`
-  - Divide: `/`
-  - Multiply: `*`
-  - Add: `+`
-  - Subtract: `-`
+  - 累乗：`^`か` `
+  - 割る：`/`
+  - 掛ける：` `
+  - 加える：`+`
+  - 引く：`-`
 - Scientific notation is available, e.g: `2e-3`
 - Anything to the right of a `#` is a comment, R will ignore this!
 - Functions are denoted by `function_name()`. Expressions inside the
@@ -52,7 +52,7 @@ title: Reference
 
 Individual values in R must be one of 5 **data types**, multiple values can be grouped in **data structures**.
 
-**Data types**
+**データ型**
 
 - `typeof(object)` gives information about an items data type.
 
@@ -147,7 +147,7 @@ behaviour of R).
 
   - Index
   - Name
-  - Logical vectors
+  - 論理演算子
 
 - `[` single square brackets:
 
@@ -159,7 +159,7 @@ behaviour of R).
 - `[` with two arguments to:
 
   - _extract_ rows and/or columns of
-    - matrices
+    - 行列
     - data.frames
     - e.g. `x[1,2]` will extract the value in row 1, column 2.
     - e.g. `x[2,:]` will extract the entire second column of values.
@@ -198,27 +198,27 @@ behaviour of R).
   - order of layers matters!
   - `ggsave` to save a figure.
 
-## [Vectorization](episodes/09-vectorization.Rmd)
+## [ベクトル化]({}/09-vectorization/)
 
-- Most functions and operations apply to each element of a vector
-- `*` applies element-wise to matrices
-- `%*%` for true matrix multiplication
-- `any()` will return `TRUE` if any element of a vector is `TRUE`
-- `all()` will return `TRUE` if _all_ elements of a vector are `TRUE`
+- - ほとんどの関数や演算はベクトルの要素ごとに実行されます。
+- - ` ` は行列に対して要素ごとに実行されます。
+- - 本来の行列の積を求めるには `% %` を使います。
+- - `any()` はベクトルの要素の中に一つでも `TRUE` があれば `TRUE` を返します。
+- - `all()` はベクトルの要素が 全て `TRUE` であれば `TRUE` を返します。
 
-## [Functions explained](episodes/10-functions.Rmd)
+## [関数について]({}/10-functions/)
 
-- `?"function"`
+- `?"関数"`
 - Put code whose parameters change frequently in a function, then call it with
   different parameter values to customize its behavior.
 - The last line of a function is returned, or you can use `return` explicitly
 - Any code written in the body of the function will preferably look for variables defined inside the function.
 - Document Why, then What, then lastly How (if the code isn't self explanatory)
 
-## [Writing data](episodes/11-writing-data.Rmd)
+## [データの出力]({}/11-writing-data/)
 
-- `write.table` to write out objects in regular format
-- set `quote=FALSE` so that text isn't wrapped in `"` marks
+- - `write.table` を使ってオブジェクトを一般的な形式に出力しましょう。
+- - `quote=FALSE` を指定して文字列が引用符に囲われないようにしましょう。
 
 ## [Dataframe manipulation with dplyr](episodes/12-dplyr.Rmd)
 
@@ -242,10 +242,10 @@ behaviour of R).
 
 - Value of reproducible reports
 - Basics of Markdown
-- R code chunks
-- Chunk options
-- Inline R code
-- Other output formats
+- Rコードの「チャンク（塊）」
+- チャンクのオプション
+- 文中のRコード
+- その他の出力オプション
 
 ## [Best practices for writing good code](episodes/15-wrap-up.Rmd)
 
