@@ -9,18 +9,18 @@
 #incubator: The Carpentries Incubator
 carpentry: 'swc'
 #Overall title for pages.
-title: 'R for Reproducible Scientific Analysis'
+title: '再現可能な化学分析のためのR'
 #Date the lesson was created (YYYY-MM-DD, this is empty by default)
 created: '2015-04-18'
 #Comma-separated list of keywords for the lesson
-keywords: 'software, data, lesson, The Carpentries'
+keywords: 'ソフトウェア, データ, レッスン, カーペントリーズ'
 #Life cycle stage of the lesson
 #possible values: pre-alpha, alpha, beta, stable
 life_cycle: 'stable'
 #License of the lesson materials (recommended CC-BY 4.0)
 license: 'CC-BY 4.0'
 #Link to the source repository for this lesson
-source: 'https://github.com/swcarpentry/r-novice-gapminder'
+source: 'https://github.com/swcarpentry-ja/r-novice-gapminder'
 #Default branch of your lesson
 branch: 'main'
 #Who to contact if there are any issues
@@ -68,4 +68,4 @@ profiles:
 #sandpaper and varnish versions) should live
 url: 'https://swcarpentry.github.io/r-novice-gapminder'
 analytics: carpentries
-lang: en
+lang: ja
