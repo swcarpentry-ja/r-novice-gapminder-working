@@ -671,18 +671,241 @@ behavior from bash.</p>
 “&gt;”, it means it’s waiting for you to complete the command. If you
 want to cancel a command you can hit <kbd>Esc</kbd> and RStudio will
 give you back the “&gt;” prompt.</p>
-<p>::::::::::::::::::::::::::::::::::::::::: callout</p>
-</section><section><h2 class="section-heading" id="ヒントコマンドの取り消し">ヒント：コマンドの取り消し<a class="anchor" aria-label="anchor" href="#%E3%83%92%E3%83%B3%E3%83%88%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%81%AE%E5%8F%96%E3%82%8A%E6%B6%88%E3%81%97"></a>
+<div id="ヒントコマンドの取り消し" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div id="ヒントコマンドの取り消し" class="callout-inner">
+<h3 class="callout-title">ヒント：コマンドの取り消し</h3>
+<div class="callout-content">
+<p>RStudioではなく、コマンドラインからRを使う場合、
+コマンドを取り消す場合、<kbd>Esc</kbd>の代わりに<kbd>Ctrl</kbd>+<kbd>C</kbd>を使う必要があります。これは、Macユーザーも同じです！
+コマンドの取り消しは、不完全なコマンドを消す他にも使えます。</p>
+<p>走っているコードを止めてとRに伝えるにも使え（例えば、予想よりも
+かなり長くかかっている場合）、その他にも、今書いているコードを
+消去するにも使えます。</p>
+</div>
+</div>
+</div>
+<p>Rを計算機として使う場合、演算の順番は、学校で学んだだろうものと
+同じです。</p>
+<p>一番先に行われる処理から一番後に行われる処理：</p>
+<ul>
+<li>括弧： <code>(</code>、<code>)</code>
+</li>
+<li>累乗：<code>^</code>か<code></code>
+</li>
+<li>掛ける：<code></code>
+</li>
+<li>割る：<code>/</code>
+</li>
+<li>加える：<code>+</code>
+</li>
+<li>引く：<code>-</code>
+</li>
+</ul>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fl">3</span> <span class="op">+</span> <span class="fl">5</span> <span class="op">*</span> <span class="fl">2</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">出力<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>[1] 13</code></pre>
+</div>
+<p>デフォルトと違う順番で計算させたい場合や、意図を明確にしたい場合は、
+演算をまとめるために、括弧を使いましょう。</p>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="op">(</span><span class="fl">3</span> <span class="op">+</span> <span class="fl">5</span><span class="op">)</span> <span class="op">*</span> <span class="fl">2</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">出力<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>[1] 16</code></pre>
+</div>
+<p>括弧をつける必要ではないときは、面倒かもしれませんが、そうすることで自分の意図
+するところがはっきり伝わります。
+自分が書いたコードを、後々他の人が読むことになるかもしれないことを忘れないように。</p>
+<div class="codewrapper sourceCode" id="cb9">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="op">(</span><span class="fl">3</span> <span class="op">+</span> <span class="op">(</span><span class="fl">5</span> <span class="op">(</span><span class="fl">2</span> <span class="op">^</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="co"># 読みづらい 3 + 5 2 ^ 2 # ルールを覚えている人には明確 3 + 5 (2 ^ 2) # ルールを忘れている人にも伝わるはず</span></span></code></pre>
+</div>
+<p>コードの後の文は、「コメント」と呼ばれます。
+シャープ（ナンバー）記号<code>#</code>
+の後に来るものは、Rがコードを実行する際は無視されます。</p>
+<p>とても大きい、又は小さい数には、指数表記が使われます：</p>
+<div class="codewrapper sourceCode" id="cb10">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fl">2</span><span class="op">/</span><span class="fl">10000</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">出力<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>[1] 2e-04</code></pre>
+</div>
+<p>Which is shorthand for “multiplied by <code>10^XX</code>”. So
+<code>2e-4</code> is shorthand for <code>2 * 10^(-4)</code>.</p>
+<p>数を指数記号で書くこともできます：</p>
+<div class="codewrapper sourceCode" id="cb12">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fl">5e3</span> <span class="co"># マイナスがないことに注意</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">出力<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>[1] 5000</code></pre>
+</div>
+</section><section><h2 class="section-heading" id="数学関数">数学関数<a class="anchor" aria-label="anchor" href="#%E6%95%B0%E5%AD%A6%E9%96%A2%E6%95%B0"></a>
 </h2>
 <hr class="half-width">
-<p>RStudioではなく、コマンドラインからRを使う場合、
-コマンドを取り消す場合、&lt;kbd
-Esc:1:3: unexpected numeric constant 1:
-1 0 ^</p>
-<pre><code>
-
-``` r
-1 = -9 # より大きい、又は等しい</code></pre>
+<p>R has many built in mathematical functions. To call a function, we
+can type its name, followed by open and closing parentheses. Functions
+take arguments as inputs, anything we type inside the parentheses of a
+function is considered an argument. Depending on the function, the
+number of arguments can vary from none to multiple. 例えば：</p>
+<div class="codewrapper sourceCode" id="cb14">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">getwd</span><span class="op">(</span><span class="op">)</span> <span class="co">#returns an absolute filepath</span></span></code></pre>
+</div>
+<p>doesn’t require an argument, whereas for the next set of mathematical
+functions we will need to supply the function a value in order to
+compute the result.</p>
+<div class="codewrapper sourceCode" id="cb15">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">sin</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="co"># 三角関数</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">出力<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>[1] 0.841471</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb17">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">log</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="co"># 自然対数</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">出力<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>[1] 0</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb19">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">log10</span><span class="op">(</span><span class="fl">10</span><span class="op">)</span> <span class="co"># 10を底とする対数</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">出力<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>[1] 1</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb21">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">exp</span><span class="op">(</span><span class="fl">0.5</span><span class="op">)</span> <span class="co"># e^(1/2)</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">出力<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>[1] 1.648721</code></pre>
+</div>
+<p>Googleで検索すればいいですし、関数の始まりさえ覚えていれば
+RStudioのタブ入力補完機能が使えます。</p>
+<p>これがRStudioが、Rそのものを使うよりもいい理由のひとつです。
+RStudioには、自動補完機能があり、関数、その引数、その取りうる値を
+より簡単に見つけることができます。</p>
+<p>コマンド名の前に、<code>?</code>
+を付けることで、そのコマンドのヘルプのページを開くことができます。 When
+using RStudio, this will open the ‘Help’ pane; if using R in the
+terminal, the help page will open in your browser. The help page will
+include a detailed description of the command and how it works.
+Scrolling to the bottom of the help page will usually show a collection
+of code examples which illustrate command usage.
+これについては、後ほど、例で見てみることにしましょう。</p>
+</section><section><h2 class="section-heading" id="何かを比較する">何かを比較する<a class="anchor" aria-label="anchor" href="#%E4%BD%95%E3%81%8B%E3%82%92%E6%AF%94%E8%BC%83%E3%81%99%E3%82%8B"></a>
+</h2>
+<hr class="half-width">
+<p>Rを使って比較をすることもできます：</p>
+<div class="codewrapper sourceCode" id="cb23">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="op">~</span><span class="op">~</span><span class="op">~</span> <span class="fl">1</span> <span class="op">==</span> <span class="fl">1</span> <span class="co"># 等価（イコールが２つあることに注意。「は、～と等しい」と読む） ~~~</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">出力<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code><span><span class="op">~</span><span class="op">~</span><span class="op">~</span><span class="fl">1</span> <span class="op">==</span> <span class="fl">1</span></span></code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb25">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="op">~</span><span class="op">~</span><span class="op">~</span> <span class="fl">1</span> <span class="op">!=</span> <span class="fl">2</span> <span class="co"># 不等価（「は、～と等しくない」と読む） ~~~</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">出力<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code><span><span class="op">~</span><span class="op">~</span><span class="op">~</span><span class="fl">1</span> <span class="op">!=</span> <span class="fl">2</span></span></code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb27">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fl">1</span> <span class="op">&lt;</span> <span class="fl">2</span> <span class="co"># より少ない</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">出力<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>[1] TRUE</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb29">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fl">1</span> <span class="op">&lt;=</span> <span class="fl">1</span> <span class="co"># より少ない、又は等しい</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">出力<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>[1] TRUE</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb31">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode r" tabindex="0"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a><span class="dv">1</span> <span class="dv">0</span> <span class="co"># より大きい</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">エラー<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error in parse(text = input): &lt;text&gt;:1:3: unexpected numeric constant
+1: 1 0
+      ^</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb33">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fl">1</span> <span class="op">=</span> <span class="op">-</span><span class="fl">9</span> <span class="co"># より大きい、又は等しい</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">エラー<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -712,7 +935,7 @@ tolerance).</p>
 </h2>
 <hr class="half-width">
 <p>代入演算子<code>&lt;-</code>を用いて、次のように値を変数に入れることができます：</p>
-<div class="codewrapper sourceCode" id="cb7">
+<div class="codewrapper sourceCode" id="cb35">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -722,7 +945,7 @@ tolerance).</p>
 for later in something called a <strong>variable</strong>.
 <code>x</code> now contains the <strong>value</strong>
 <code>0.025</code>:</p>
-<div class="codewrapper sourceCode" id="cb8">
+<div class="codewrapper sourceCode" id="cb36">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -739,7 +962,7 @@ for later in something called a <strong>variable</strong>.
 RStudio, and you will see that <code>x</code> and its value have
 appeared. Our variable <code>x</code> can be used in place of a number
 in any calculation that expects a number:</p>
-<div class="codewrapper sourceCode" id="cb10">
+<div class="codewrapper sourceCode" id="cb38">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -751,7 +974,7 @@ in any calculation that expects a number:</p>
 <pre class="output" tabindex="0"><code>[1] -3.688879</code></pre>
 </div>
 <p>変数は、再度、代入することもできます：</p>
-<div class="codewrapper sourceCode" id="cb12">
+<div class="codewrapper sourceCode" id="cb40">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -759,7 +982,7 @@ in any calculation that expects a number:</p>
 </div>
 <p><code>x</code>は、0.025という値でしたが、今は、100になりました。</p>
 <p>代入する値は、既に代入されている変数でもいいです：</p>
-<div class="codewrapper sourceCode" id="cb13">
+<div class="codewrapper sourceCode" id="cb41">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -779,7 +1002,7 @@ period are hidden variables. 長い変数名のつけ方は様々です。例え
 <p>何を使うかは書き手次第ですが、 一貫性を持たせる
 ようにしましょう。</p>
 <p>代入の演算子として、<code>=</code>を使うこともできます：</p>
-<div class="codewrapper sourceCode" id="cb14">
+<div class="codewrapper sourceCode" id="cb42">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -799,17 +1022,17 @@ used in the community. So the recommendation is to use
 <h3 class="callout-title">チャレンジ１</h3>
 <div class="callout-content">
 <p>次のうちどれがRの変数名として使えますか？</p>
-<div class="codewrapper sourceCode" id="cb15">
+<div class="codewrapper sourceCode" id="cb43">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode r" tabindex="0"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>min_height</span>
-<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a>max.height</span>
-<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a>_age</span>
-<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a>.mass</span>
-<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a>MaxLength</span>
-<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a>min<span class="sc">-</span>length</span>
-<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a><span class="dv">2</span>widths</span>
-<span id="cb15-8"><a href="#cb15-8" tabindex="-1"></a>celsius2kelvin</span></code></pre>
+<pre class="sourceCode r" tabindex="0"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" tabindex="-1"></a>min_height</span>
+<span id="cb43-2"><a href="#cb43-2" tabindex="-1"></a>max.height</span>
+<span id="cb43-3"><a href="#cb43-3" tabindex="-1"></a>_age</span>
+<span id="cb43-4"><a href="#cb43-4" tabindex="-1"></a>.mass</span>
+<span id="cb43-5"><a href="#cb43-5" tabindex="-1"></a>MaxLength</span>
+<span id="cb43-6"><a href="#cb43-6" tabindex="-1"></a>min<span class="sc">-</span>length</span>
+<span id="cb43-7"><a href="#cb43-7" tabindex="-1"></a><span class="dv">2</span>widths</span>
+<span id="cb43-8"><a href="#cb43-8" tabindex="-1"></a>celsius2kelvin</span></code></pre>
 </div>
 </div>
 </div>
@@ -819,10 +1042,10 @@ used in the community. So the recommendation is to use
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> チャレンジ８の解答 1 </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The following can be used as R variables:</p>
-<div class="codewrapper sourceCode" id="cb16">
+<div class="codewrapper sourceCode" id="cb44">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -832,19 +1055,19 @@ used in the community. So the recommendation is to use
 <span><span class="va">celsius2kelvin</span></span></code></pre>
 </div>
 <p>The following creates a hidden variable:</p>
-<div class="codewrapper sourceCode" id="cb17">
+<div class="codewrapper sourceCode" id="cb45">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">.mass</span></span></code></pre>
 </div>
 <p>The following will not be able to be used to create a variable</p>
-<div class="codewrapper sourceCode" id="cb18">
+<div class="codewrapper sourceCode" id="cb46">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode r" tabindex="0"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a>_age</span>
-<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a>min<span class="sc">-</span>length</span>
-<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a><span class="dv">2</span>widths</span></code></pre>
+<pre class="sourceCode r" tabindex="0"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" tabindex="-1"></a>_age</span>
+<span id="cb46-2"><a href="#cb46-2" tabindex="-1"></a>min<span class="sc">-</span>length</span>
+<span id="cb46-3"><a href="#cb46-3" tabindex="-1"></a><span class="dv">2</span>widths</span></code></pre>
 </div>
 </div>
 </div>
@@ -857,7 +1080,7 @@ used in the community. So the recommendation is to use
 meaning that variables and functions can have vectors as values. In
 contrast to physics and mathematics, a vector in R describes a set of
 values in a certain order of the same data type. 例えば：</p>
-<div class="codewrapper sourceCode" id="cb19">
+<div class="codewrapper sourceCode" id="cb47">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -868,7 +1091,7 @@ values in a certain order of the same data type. 例えば：</p>
 </h3>
 <pre class="output" tabindex="0"><code>[1] 1 2 3 4 5</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb21">
+<div class="codewrapper sourceCode" id="cb49">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -879,7 +1102,7 @@ values in a certain order of the same data type. 例えば：</p>
 </h3>
 <pre class="output" tabindex="0"><code>[1]  2  4  8 16 32</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb23">
+<div class="codewrapper sourceCode" id="cb51">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -897,7 +1120,7 @@ values in a certain order of the same data type. 例えば：</p>
 <hr class="half-width">
 <p>Rセッションで使えるコマンドがいくつかあります。</p>
 <p><code>ls</code>は、グローバル環境（作業中のRセッション）にある全ての変数と関数をリスト化します：</p>
-<div class="codewrapper sourceCode" id="cb25">
+<div class="codewrapper sourceCode" id="cb53">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -929,7 +1152,7 @@ values in a certain order of the same data type. 例えば：</p>
 呼び出していることを伝えるために括弧は必要です。</p>
 <p>If we type <code>ls</code> by itself, R prints a bunch of code
 instead of a listing of objects.</p>
-<div class="codewrapper sourceCode" id="cb28">
+<div class="codewrapper sourceCode" id="cb56">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -969,7 +1192,7 @@ instead of a listing of objects.</p>
     }
     else all.names
 }
-&lt;bytecode: 0x557fc6ecee50&gt;
+&lt;bytecode: 0x556031431dd0&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 </div>
 <p>What’s going on here?</p>
@@ -977,7 +1200,7 @@ instead of a listing of objects.</p>
 entering the name of an object by itself prints the contents of the
 object. The object <code>x</code> that we created earlier contains 1, 2,
 3, 4, 5:</p>
-<div class="codewrapper sourceCode" id="cb30">
+<div class="codewrapper sourceCode" id="cb58">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -992,7 +1215,7 @@ object. The object <code>x</code> that we created earlier contains 1, 2,
 <code>ls</code> function work! We’ll talk more about how functions work
 and start writing our own later.</p>
 <p>もう必要ないオブジェクトを消去するには、<code>rm</code>が使えます：</p>
-<div class="codewrapper sourceCode" id="cb32">
+<div class="codewrapper sourceCode" id="cb60">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1000,7 +1223,7 @@ and start writing our own later.</p>
 </div>
 <p>もし、環境に、色々なものがいっぱいあって、それらを全て消去したい場合、
 <code>ls</code>の結果を<code>rm</code>関数に渡すことで対応できます。：</p>
-<div class="codewrapper sourceCode" id="cb33">
+<div class="codewrapper sourceCode" id="cb61">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1013,7 +1236,7 @@ and start writing our own later.</p>
 名前で引数の値を定めるときは、演算子<code>=</code>を 必ず
 使わなければなりません！</p>
 <p>もし代わりに<code>&lt;-</code>を使うと、意図しない副作用が現れるか、エラーメッセージが現れます：</p>
-<div class="codewrapper sourceCode" id="cb34">
+<div class="codewrapper sourceCode" id="cb62">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1079,7 +1302,7 @@ Install and Update buttons at the top of the tab.</p>
 <div class="callout-content">
 <p>次のプログラムのそれぞれの宣言の後、それぞれの変数の値は
 何になるでしょうか？</p>
-<div class="codewrapper sourceCode" id="cb36">
+<div class="codewrapper sourceCode" id="cb64">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1096,23 +1319,23 @@ Install and Update buttons at the top of the tab.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> チャレンジ８の解答 </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb37">
+<div class="codewrapper sourceCode" id="cb65">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mass</span> <span class="op">&lt;-</span> <span class="fl">47.5</span></span></code></pre>
 </div>
 <p>This will give a value of 47.5 for the variable mass</p>
-<div class="codewrapper sourceCode" id="cb38">
+<div class="codewrapper sourceCode" id="cb66">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">age</span> <span class="op">&lt;-</span> <span class="fl">122</span></span></code></pre>
 </div>
 <p>This will give a value of 122 for the variable age</p>
-<div class="codewrapper sourceCode" id="cb39">
+<div class="codewrapper sourceCode" id="cb67">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1120,7 +1343,7 @@ Install and Update buttons at the top of the tab.</p>
 </div>
 <p>This will multiply the existing value of 47.5 by 2.3 to give a new
 value of 109.25 to the variable mass.</p>
-<div class="codewrapper sourceCode" id="cb40">
+<div class="codewrapper sourceCode" id="cb68">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1149,11 +1372,11 @@ massはageよりも大きいでしょうか？</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> チャレンジ３の解答 </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>One way of answering this question in R is to use the
 <code>&gt;</code> to set up the following:</p>
-<div class="codewrapper sourceCode" id="cb41">
+<div class="codewrapper sourceCode" id="cb69">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1187,10 +1410,10 @@ variables.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> チャレンジ８の解答 </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>We can use the <code>rm</code> command to accomplish this task</p>
-<div class="codewrapper sourceCode" id="cb43">
+<div class="codewrapper sourceCode" id="cb71">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1217,11 +1440,11 @@ variables.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> チャレンジ８の解答 </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <p>We can use the <code>install.packages()</code> command to install the
 required packages.</p>
-<div class="codewrapper sourceCode" id="cb44">
+<div class="codewrapper sourceCode" id="cb72">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1231,7 +1454,7 @@ required packages.</p>
 </div>
 <p>An alternate solution, to install multiple packages with a single
 <code>install.packages()</code> command is:</p>
-<div class="codewrapper sourceCode" id="cb45">
+<div class="codewrapper sourceCode" id="cb73">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1908,7 +2131,7 @@ vector do you expect will be created if you evaluate the following:</p>
   チャレンジ３の解答
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The <code>c()</code> function creates a vector, in which all elements
 are of the same type. In the first case, the elements are numeric, in
@@ -1938,7 +2161,7 @@ to use it later. What’s the difference between the <code>sep</code> and
   チャレンジ３の解答
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>To look at the help for the <code>paste()</code> function, use:</p>
 <div class="codewrapper sourceCode" id="cb11">
@@ -2047,7 +2270,7 @@ reading in tabular data.</p>
   チャレンジ３の解答
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>The standard R function for reading tab-delimited files with a period
 decimal separator is read.delim(). You can also do this with
@@ -4351,7 +4574,7 @@ person’s answer to the question, “Is it time for coffee break?”</p>
   チャレンジ３の解答
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb28">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4637,7 +4860,7 @@ could ask for a few lines at random. How would you code this?</p>
   チャレンジ３の解答
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>To check the last few lines it’s relatively simple as R already has a
 function for this:</p>
@@ -4697,7 +4920,7 @@ RStudio).</p>
   チャレンジ３の解答
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>The <code>source</code> function can be used to use a script within a
 script. Assume you would like to load the same type of file over and
@@ -4745,7 +4968,7 @@ variable:</p>
   チャレンジ３の解答
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>The object <code>gapminder</code> is a data frame with columns</p>
 <ul>
@@ -5118,7 +5341,7 @@ neighbour. Did you have different strategies?</p>
   チャレンジ８の解答 1
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb34">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5298,7 +5521,7 @@ more elements of the vector are <code>TRUE</code>).</p>
   チャレンジ８の解答
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb49">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5545,7 +5768,7 @@ work.</p>
   チャレンジ３の解答
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <ul>
 <li>The <strong>wrong</strong> way to do this problem is
@@ -5825,7 +6048,7 @@ column-wise:</p>
   チャレンジ８の解答
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>D</p>
 </div>
@@ -5969,7 +6192,7 @@ number 2 from xlist. ヒント：数字の2は、リスト「b」の中にあり
   チャレンジ８の解答
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb113">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -6034,7 +6257,7 @@ number 2 from xlist. ヒント：数字の2は、リスト「b」の中にあり
   チャレンジ８の解答
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb120">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -6200,7 +6423,7 @@ and 2007</li>
   チャレンジ８の解答
   </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
 <div class="accordion-body">
 <p>Fix each of the following common data frame subsetting errors:</p>
 <ol style="list-style-type: decimal">
@@ -6286,7 +6509,7 @@ and 2007</li>
   チャレンジ８の解答
   </h4>
 </button>
-<div id="collapseSolution8" class="accordion-collapse collapse" aria-labelledby="headingSolution8" data-bs-parent="#accordionSolution8">
+<div id="collapseSolution8" class="accordion-collapse collapse" data-bs-parent="#accordionSolution8" aria-labelledby="headingSolution8">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><p><code>gapminder</code>
@@ -7239,7 +7462,7 @@ appear on the x-axis.</p>
   チャレンジ８の解答 1
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>Here is one possible solution:</p>
 <div class="codewrapper sourceCode" id="cb5">
@@ -7279,7 +7502,7 @@ expectancy has increased over time
   チャレンジ８の解答
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>The solution presented below adds <code>color=continent</code> to the
 call of the <code>aes</code> function. The general trend seems to
@@ -7390,7 +7613,7 @@ double型にならないのです。</p>
   チャレンジ３の解答
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>The lines now get drawn over the points!</p>
 <div class="codewrapper sourceCode" id="cb11">
@@ -7509,7 +7732,7 @@ the <strong>linewidth</strong> aesthetic by passing it as an argument to
   チャレンジ８の解答
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>Here a possible solution: Notice that the <code>color</code> argument
 is supplied outside of the <code>aes()</code> function. This means that
@@ -7553,7 +7776,7 @@ specific variable.</p>
   チャレンジ８の解答
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <p>Here is a possible solution: Notice that supplying the
 <code>color</code> argument inside the <code>aes()</code> functions
@@ -7701,7 +7924,7 @@ continents during the available years.</p>
   チャレンジ３の解答
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 <p>Here a possible solution: <code>xlab()</code> and <code>ylab()</code>
 set labels for the x and y axes, respectively The axis title, text and
@@ -7861,7 +8084,7 @@ scale transformation, and grouping.</li>
   チャレンジ８の解答 1
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p><code>gapminder</code> データセットの <code>pop</code>
 列でこれに挑戦してみましょう。</p>
@@ -7911,7 +8134,7 @@ scale transformation, and grouping.</li>
   チャレンジ８の解答
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>チャレンジの解答
 100万人単位の人口を年ごとにプロットして、作図方法を復習しましょう。</p>
@@ -8091,7 +8314,7 @@ reference guide</a> を参照して下さい</p>
   チャレンジ３の解答
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>以下のリストがあるとします：</p>
 <div class="codewrapper sourceCode" id="cb28">
@@ -8176,7 +8399,7 @@ reference guide</a> を参照して下さい</p>
   チャレンジ４
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>以下の分数の数列の総和が知りたいとします: ~~~ x:</p>
 <div class="codewrapper sourceCode" id="cb34">
@@ -9117,7 +9340,7 @@ one panel per continent.</p>
   チャレンジ８の解答 1
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -9241,7 +9464,7 @@ Australia,1992,17481977,Oceania,77.56,23424.76683</code></pre>
   チャレンジ８の解答
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -9518,7 +9741,7 @@ why?</p>
   チャレンジ３の解答
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -9652,7 +9875,7 @@ expectancy?</p>
   チャレンジ３の解答
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -10017,7 +10240,7 @@ column. 例えば、大陸別平均余命の標準誤差を得たいとします
   Solution to Advanced Challenge
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb52">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -10187,7 +10410,7 @@ in a database and observed variables are like the database values.</p>
   チャレンジ３の解答
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>チャレンジ１の解答 元々の gapminder data.frame は、中間の形式です。
 複数の観測変数（<code>pop</code>,<code>lifeExp</code>,<code>gdpPercap</code>）があるため、
@@ -10383,7 +10606,7 @@ learned in the <code>dplyr</code> lesson</p>
   チャレンジ３の解答
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -10682,7 +10905,7 @@ our ID variables to simplify the process of defining
   チャレンジ３の解答
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb37">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -10975,7 +11198,7 @@ itemized list).</p>
   チャレンジ３の解答
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>In RStudio, select File &gt; New file &gt; R Markdown…</p>
 <p>Delete the placeholder text and add the following:</p>
@@ -11055,7 +11278,7 @@ You can create code chunks quickly in RStudio using the shortcuts
   チャレンジ３の解答
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <pre>``{r load-ggplot2}
 library("ggplot2")
@@ -11153,7 +11376,7 @@ knitr::opts_chunk$set(fig.path="Figs/", message=FALSE, warning=FALSE,
   チャレンジ３の解答
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <pre>``{r echo = FALSE, fig.width = 3}
 plot(faithful)
@@ -11204,7 +11427,7 @@ to the “R Markdown Cheat Sheet” under the “Cheatsheets” section of the
   チャレンジ３の解答
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>Here’s some inline code to determine that 2 + 2 = 4.</p>
 </div>
