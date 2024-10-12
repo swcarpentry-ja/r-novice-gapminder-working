@@ -14,7 +14,7 @@ source: Rmd
 - Manage a workspace in an interactive R session
 - Use mathematical and comparison operators
 - Call functions
-- Manage packages
+- パーッケージをロードしましょう。
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -22,7 +22,7 @@ source: Rmd
 
 - How to find your way around RStudio?
 - How to interact with R?
-- How to manage your environment?
+- 環境を管理する?
 - How to install packages?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -35,7 +35,7 @@ source: Rmd
 Please ensure you have the latest version of R and RStudio installed on your machine. This is important, as some packages used in the workshop may not install correctly (or at all) if R is not up to date.
 
 - [Download and install the latest version of R here](https://www.r-project.org/)
-- [Download and install RStudio here](https://www.rstudio.com/products/rstudio/download/#download)
+- RStudioは[ここ](https://www.rstudio.com/products/rstudio/download/#download/)からダウンロードできます。
 
 ## Why use R and R studio?
 
@@ -49,9 +49,7 @@ Although we could use a spreadsheet in Microsoft Excel or Google sheets to analy
 Therefore, this lesson will teach you how to begin exploring your data using R and RStudio. The R program is available for Windows, Mac, and Linux operating systems, and is a freely-available where you downloaded it above. To run R, all you need is the R program.
 
 However, to make using R easier, we will use the program RStudio, which we also downloaded above. RStudio is a free, open-source, Integrated Development
-Environment (IDE). It provides a built-in editor, works on all platforms (including
-on servers) and provides many advantages such as integration with version
-control and project management.
+Environment (IDE). このレッスンではRStudioを使います。RStudioは、無料であり、Rを組み込んだオープンソースの 総合開発環境（IDE: Integrated Development Environment）です。RStudioは、全てのプラットフォーム（サーバーも含む）で起動できること、 エディタが組み込まれていることや、プロジェクト管理やバージョン管理にも対応しているなど、 良いところがいっぱいがあります。
 
 ## Overview
 
@@ -239,9 +237,7 @@ log10(10) # 10を底とする対数
 exp(0.5) # e^(1/2)
 ```
 
-Don't worry about trying to remember every function in R. You
-can look them up on Google, or if you can remember the
-start of the function's name, use the tab completion in RStudio.
+Googleで検索すればいいですし、関数の始まりさえ覚えていれば RStudioのタブ入力補完機能が使えます。
 
 これがRStudioが、Rそのものを使うよりもいい理由のひとつです。 RStudioには、自動補完機能があり、関数、その引数、その取りうる値を より簡単に見つけることができます。
 
@@ -529,8 +525,7 @@ obtaining a package written by someone else. As of this writing, there
 are over 10,000 packages available on CRAN (the comprehensive R archive
 network). R and RStudio have functionality for managing packages:
 
-- You can see what packages are installed by typing
-  `installed.packages()`
+- インストールされているパッケージを以下を入力することで見ることができます。
 - You can install packages by typing `install.packages("packagename")`,
   where `packagename` is the package name, in quotes.
 - You can update installed packages by typing `update.packages()`
