@@ -471,54 +471,51 @@
 のオペレーティングシステムで利用でき、無料で上記からダウンロード可能です。
 R を実行するにはR プログラムだけで十分です。</p>
 <p>ただし、R の使用をより簡単にするために、上記でダウンロードしたRStudio
-を使用します。 RStudio is a free, open-source, Integrated Development
-Environment (IDE).
-このレッスンではRStudioを使います。RStudioは、無料であり、Rを組み込んだオープンソースの
-総合開発環境（IDE: Integrated Development
-Environment）です。RStudioは、全てのプラットフォーム（サーバーも含む）で起動できること、
+を使用します。 RStudioは、無料であり、Rを組み込んだオープンソースの
+総合開発環境（IDE: Integrated Development Environment）です。
+RStudioは、全てのプラットフォーム（サーバーも含む）で起動できること、
 エディタが組み込まれていることや、プロジェクト管理やバージョン管理にも対応しているなど、
 良いところがいっぱいがあります。</p>
 </section><section><h2 class="section-heading" id="概要">概要<a class="anchor" aria-label="anchor" href="#%E6%A6%82%E8%A6%81"></a></h2>
-<hr class="half-width"><p>We will begin with raw data, perform exploratory analyses, and learn
-how to plot results graphically. This example starts with a dataset from
-<a href="https://www.gapminder.org" class="external-link">gapminder.org</a> containing
-population information for many countries through time. Can you read the
-data into R? Can you plot the population for Senegal? Can you calculate
-the average income for countries on the continent of Asia? By the end of
-these lessons you will be able to do things like plot the populations
-for all of these countries in under a minute!</p>
+<hr class="half-width"><p>生のデータから、予備解析をし、結果をどう
+グラフ上にプロットするかを学びます。 ここでの例は <a href="https://www.gapminder.org" class="external-link">gapminder.org</a>
+のデータセットを使います。このデータセットには、多くの国の人口の時系列データが入っています。
+データをRに読み込むことができますか？
+セネガルの人口をプロットできますか？
+アジア大陸にある国の平均所得を計算できますか？
+これらのレッスンの終わるまでに、これらの全ての国の人口をプロットしたりするようなことが
+一分足らずでできるようになるでしょう！</p>
 <p><strong>基本的なレイアウト</strong></p>
 <p>最初にRStudioを開くと、３つのパネルが現れます：</p>
 <ul><li>インタラクティブなRコンソール（左側全部）</li>
 <li>環境／履歴（右上のタブ形式）</li>
 <li>Files/Plots/Packages/Help/Viewer（右下のタブ形式）</li>
-</ul><figure><img src="fig/01-rstudio.png" alt="RStudio layout" class="figure mx-auto d-block"></figure><p>Rスクリプトなどのファイルを開くと、左上にエディタパネルも開きます。</p>
-<figure><img src="fig/01-rstudio-script.png" alt="RStudio layout with .R file open" class="figure mx-auto d-block"></figure><div id="r-scripts" class="callout">
+</ul><figure><img src="fig/01-rstudio.png" alt="RStudioレイアウト" class="figure mx-auto d-block"></figure><p>Rスクリプトなどのファイルを開くと、左上にエディタパネルも開きます。</p>
+<figure><img src="fig/01-rstudio-script.png" alt=".R ファイルが開いてある状態のRStudio" class="figure mx-auto d-block"></figure><div id="r-スクリプト" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="r-scripts" class="callout-inner">
-<h3 class="callout-title">R scripts</h3>
+<div id="r-スクリプト" class="callout-inner">
+<h3 class="callout-title">R スクリプト</h3>
 <div class="callout-content">
-<p>Any commands that you write in the R console can be saved to a file
-to be re-run again. Files containing R code to be ran in this way are
-called R scripts. R scripts have <code>.R</code> at the end of their
-names to let you know what they are.</p>
+<p>R コンソールに書き込んだコマンドは、再度実行するために
+ファイルに保存することができます。 このように実行される R
+コードを含むファイルは R スクリプトと呼ばれます。 R スクリプトには
+<code>.R</code> が名前の末尾にが付けられています。</p>
 </div>
 </div>
 </div>
 </section><section><h2 class="section-heading" id="rstudioでの作業の流れ">RStudioでの作業の流れ<a class="anchor" aria-label="anchor" href="#rstudio%E3%81%A7%E3%81%AE%E4%BD%9C%E6%A5%AD%E3%81%AE%E6%B5%81%E3%82%8C"></a></h2>
 <hr class="half-width"><p>RStudioで作業する２つの主な方法：</p>
 <ol style="list-style-type: decimal"><li>インタラクティブなRコンソールで試したり、確認したりした後、コードを.</li>
-</ol><ul><li>This works well when doing small tests and initially starting
-off.</li>
-<li>It quickly becomes laborious</li>
-</ul><ol start="2" style="list-style-type: decimal"><li>Start writing in a .R file and use RStudio’s short cut keys for the
-Run command to push the current line, selected lines or modified lines
-to the interactive R console.</li>
-</ol><ul><li>This is a great way to start; all your code is saved for later</li>
-<li>You will be able to run the file you create from within RStudio or
-using R’s <code>source()</code> function.</li>
+</ol><ul><li>まず始めてみるときや、小規模なテストをするのに適している。</li>
+<li>すぐ面倒になる。</li>
+</ul><ol start="2" style="list-style-type: decimal"><li>まず .R ファイルに書き、インタラクティブな R
+コンソールへ、現在の行、選択した行、
+修正した行など送るコマンドを走らせるために、RStudio
+のショートカットキーを使う。</li>
+</ol><ul><li>始めるのによい方法。全てのコードが後々のために保存される。</li>
+<li>作ったファイルを、RStudioから又は<code>source()</code>関数を使って走らせることができる。</li>
 </ul><div id="ヒントひとかたまりのコードを走らせる" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -526,19 +523,21 @@ using R’s <code>source()</code> function.</li>
 <div id="ヒントひとかたまりのコードを走らせる" class="callout-inner">
 <h3 class="callout-title">ヒント：ひとかたまりのコードを走らせる</h3>
 <div class="callout-content">
-<p>RStudio offers you great flexibility in running code from within the
-editor window. There are buttons, menu choices, and keyboard shortcuts.
-To run the current line, you can</p>
-<ol style="list-style-type: decimal"><li>click on the <code>Run</code> button above the editor panel, or</li>
-<li>select “Run Lines” from the “Code” menu, or</li>
-<li>hit <kbd>Ctrl</kbd>+<kbd>Return</kbd> in Windows or Linux or
-<kbd>⌘</kbd>+<kbd>Return</kbd> on OS X. (This shortcut can also be seen
-by hovering the mouse over the button). To run a block of code, select
-it and then <code>Run</code>. If you have modified a line of code within
-a block of code you have just run, there is no need to reselect the
-section and <code>Run</code>, you can use the next button along,
-<code>Re-run the previous region</code>. This will run the previous code
-block including the modifications you have made.</li>
+<p>RStudio には、エディタからコードを走らせる色々な方法があります。
+ボタン、メニュー選択、そしてキーボードのショートカットがあります。
+現在の行を走らせるには、</p>
+<ol style="list-style-type: decimal"><li>エディタパネルの<code>Run</code>のボタンをクリックする</li>
+<li>「Code」メニューから「Run Lines」を選択する</li>
+<li>WindowsかLinuxなら、<kbd>Ctrl</kbd>+<kbd>Return</kbd> 、またはOS
+Xなら、<kbd>⌘</kbd>+<kbd>Return</kbd>
+を押す（このショートカットはボタンの上にマウスを合わせると表示される）。
+ードのかたまりを走らせるには、まずその部分を選択してから<code>Run</code>を押します。
+もし、コードのかたまりを走らせた後で、その一部を修正した場合、
+その部分を選択して <code>Run</code> する必要はありません。その場合は次の
+<code>Re-run the previous region</code>
+ボタンが使えます。これは、前のコードのかたまりを
+修正を行った部分を含めて走らせます。 これは、前のコードのかたまりを
+修正を行った部分を含めて走らせます。</li>
 </ol></div>
 </div>
 </div>
@@ -606,11 +605,11 @@ give you back the “&gt;” prompt.</p>
 <p>Rを計算機として使う場合、演算の順番は、学校で学んだだろうものと
 同じです。</p>
 <p>一番先に行われる処理から一番後に行われる処理：</p>
-<ul><li>括弧： <code>(</code>、<code>)</code>
+<ul><li>括弧： <code>( )</code>
 </li>
-<li>累乗：<code>^</code>か<code></code>
+<li>累乗：<code>^</code>か<code>**</code>
 </li>
-<li>掛ける：<code></code>
+<li>掛ける：<code>*</code>
 </li>
 <li>割る：<code>/</code>
 </li>
@@ -1094,7 +1093,7 @@ instead of a listing of objects.</p>
     }
     else all.names
 }
-&lt;bytecode: 0x556031431dd0&gt;
+&lt;bytecode: 0x558c4bfdbdd0&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 </div>
 <p>What’s going on here?</p>
