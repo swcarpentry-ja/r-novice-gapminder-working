@@ -46,16 +46,12 @@ Microsoft Excel やGoogle スプレッドシートを使用してデータを分
 
 そのため、このレッスンではR とRStudio を使用してデータの探索を始める方法を学びます。 R プログラムはWindows、Mac、Linux のオペレーティングシステムで利用でき、無料で上記からダウンロード可能です。 R を実行するにはR プログラムだけで十分です。
 
-ただし、R の使用をより簡単にするために、上記でダウンロードしたRStudio を使用します。 RStudio is a free, open-source, Integrated Development
-Environment (IDE). このレッスンではRStudioを使います。RStudioは、無料であり、Rを組み込んだオープンソースの 総合開発環境（IDE: Integrated Development Environment）です。RStudioは、全てのプラットフォーム（サーバーも含む）で起動できること、 エディタが組み込まれていることや、プロジェクト管理やバージョン管理にも対応しているなど、 良いところがいっぱいがあります。
+ただし、R の使用をより簡単にするために、上記でダウンロードしたRStudio を使用します。 RStudioは、無料であり、Rを組み込んだオープンソースの 総合開発環境（IDE: Integrated Development Environment）です。 RStudioは、全てのプラットフォーム（サーバーも含む）で起動できること、 エディタが組み込まれていることや、プロジェクト管理やバージョン管理にも対応しているなど、 良いところがいっぱいがあります。
 
 ## 概要
 
-We will begin with raw data, perform exploratory analyses, and learn how to plot results graphically. This example starts with a dataset from [gapminder.org](https://www.gapminder.org) containing population information for many
-countries through time. Can you read the data into R? Can you plot the population for
-Senegal? Can you calculate the average income for countries on the continent of Asia?
-By the end of these lessons you will be able to do things like plot the populations
-for all of these countries in under a minute!
+生のデータから、予備解析をし、結果をどう グラフ上にプロットするかを学びます。 ここでの例は [gapminder.org](https://www.gapminder.org) のデータセットを使います。このデータセットには、多くの国の人口の時系列データが入っています。 データをRに読み込むことができますか？ セネガルの人口をプロットできますか？ アジア大陸にある国の平均所得を計算できますか？
+これらのレッスンの終わるまでに、これらの全ての国の人口をプロットしたりするようなことが 一分足らずでできるようになるでしょう！
 
 **基本的なレイアウト**
 
@@ -65,20 +61,18 @@ for all of these countries in under a minute!
 - 環境／履歴（右上のタブ形式）
 - Files/Plots/Packages/Help/Viewer（右下のタブ形式）
 
-![](fig/01-rstudio.png){alt='RStudio layout'}
+![](fig/01-rstudio.png){alt='RStudioレイアウト'}
 
 Rスクリプトなどのファイルを開くと、左上にエディタパネルも開きます。
 
-![](fig/01-rstudio-script.png){alt='RStudio layout with .R file open'}
+![](fig/01-rstudio-script.png){alt='.R ファイルが開いてある状態のRStudio'}
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
-## R scripts
+## R スクリプト
 
-Any commands that you write in the R console can be saved to a file
-to be re-run again.  Files containing R code to be ran in this way are
-called R scripts.  R scripts have `.R` at the end of their names to
-let you know what they are.
+R コンソールに書き込んだコマンドは、再度実行するために
+ファイルに保存することができます。  このように実行される R コードを含むファイルは R スクリプトと呼ばれます。  R スクリプトには `.R` が名前の末尾にが付けられています。
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -88,35 +82,24 @@ RStudioで作業する２つの主な方法：
 
 1. インタラクティブなRコンソールで試したり、確認したりした後、コードを.
 
-- This works well when doing small tests and initially starting off.
-- It quickly becomes laborious
+- まず始めてみるときや、小規模なテストをするのに適している。
+- すぐ面倒になる。
 
-2. Start writing in a .R file and use RStudio's short cut keys for the Run command
-   to push the current line, selected lines or modified lines to the
-   interactive R console.
+2. まず .R ファイルに書き、インタラクティブな R コンソールへ、現在の行、選択した行、 修正した行など送るコマンドを走らせるために、RStudio のショートカットキーを使う。
 
-- This is a great way to start; all your code is saved for later
-- You will be able to run the file you create from within RStudio
-  or using R's `source()`  function.
+- 始めるのによい方法。全てのコードが後々のために保存される。
+- 作ったファイルを、RStudioから又は`source()`関数を使って走らせることができる。
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
 ## ヒント：ひとかたまりのコードを走らせる
 
-RStudio offers you great flexibility in running code from within the editor
-window. There are buttons, menu choices, and keyboard shortcuts. To run the
-current line, you can
+RStudio には、エディタからコードを走らせる色々な方法があります。 ボタン、メニュー選択、そしてキーボードのショートカットがあります。 現在の行を走らせるには、
 
-1. click on the `Run` button above the editor panel, or
-2. select "Run Lines" from the "Code" menu, or
-3. hit <kbd>Ctrl</kbd>\+<kbd>Return</kbd> in Windows or Linux
-   or <kbd>⌘</kbd>\+<kbd>Return</kbd> on OS X.
-   (This shortcut can also be seen by hovering
-   the mouse over the button). To run a block of code, select it and then `Run`.
-   If you have modified a line of code within a block of code you have just run,
-   there is no need to reselect the section and `Run`, you can use the next button
-   along, `Re-run the previous region`. This will run the previous code block
-   including the modifications you have made.
+1. エディタパネルの`Run`のボタンをクリックする
+2. 「Code」メニューから「Run Lines」を選択する
+3. WindowsかLinuxなら、<kbd>Ctrl</kbd>\+<kbd>Return</kbd> 、またはOS Xなら、<kbd>⌘</kbd>\+<kbd>Return</kbd> を押す（このショートカットはボタンの上にマウスを合わせると表示される）。 ードのかたまりを走らせるには、まずその部分を選択してから`Run`を押します。
+   もし、コードのかたまりを走らせた後で、その一部を修正した場合、 その部分を選択して `Run` する必要はありません。その場合は次の `Re-run the previous region` ボタンが使えます。これは、前のコードのかたまりを 修正を行った部分を含めて走らせます。 これは、前のコードのかたまりを 修正を行った部分を含めて走らせます。
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -171,9 +154,9 @@ Rを計算機として使う場合、演算の順番は、学校で学んだだ�
 
 一番先に行われる処理から一番後に行われる処理：
 
-- 括弧： `(`、`)`
-- 累乗：`^`か` `
-- 掛ける：` `
+- 括弧： `( )`
+- 累乗：`^`か` **`
+- 掛ける：` *`
 - 割る：`/`
 - 加える：`+`
 - 引く：`-`
@@ -608,7 +591,7 @@ function (name, pos = -1L, envir = as.environment(pos), all.names = FALSE,
     }
     else all.names
 }
-<bytecode: 0x556031431dd0>
+<bytecode: 0x558c4bfdbdd0>
 <environment: namespace:base>
 ```
 
