@@ -351,8 +351,7 @@ of the "Help" field in the toolbar at the top of RStudio.
 
 ## 文中のRコード
 
-報告書にある、_全て_ の数を再現可能なものにすることができます。 Use <code>\`r</code> and <code>\`</code> for an in-line code chunk,
-like so: ` ``r "r round(some_value, 2)"`` `. 例えば、 <code \`r round(some_value, 2)\`</code 。このコードはコンパイル時に 実行され、結果の _値_ に置き換えられます。
+報告書にある、_全て_ の数を再現可能なものにすることができます。 インラインコードチャンクには <code>\`r</code> と <code>\`</code> で囲んで、例えばこのように記述します：` ``r "r round(some_value, 2)"`` `。 このコードはコンパイル時に実行され、結果の _値_ に置き換えられます。
 
 この文中のチャンクを、複数の行に分けて入れないようにしましょう。
 
