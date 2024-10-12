@@ -1,64 +1,43 @@
-## Contributing
+## プロジェクトに貢献する
 
-[The Carpentries][cp-site] ([Software Carpentry][swc-site], [Data
-Carpentry][dc-site], and [Library Carpentry][lc-site]) are open source
-projects, and we welcome contributions of all kinds: new lessons, fixes to
-existing material, bug reports, and reviews of proposed changes are all
-welcome.
+[SoftwareCarpentry][swc-site]と[DataCarpentry][dc-site]はオープンソースのプロジェクトです。 コミュニティーからの資料提供・ご協力、例えば、 新しいレッスン、 既存の資料の修正、 バグレポート、 変更点のレビューなど、どんなに些細な変更も歓迎いたします。
 
-### Contributor Agreement
+### 貢献する方法
 
-By contributing, you agree that we may redistribute your work under our
-license. In exchange, we will address your issues and/or assess
-your change proposal as promptly as we can, and help you become a member of our
-community. Everyone involved in [The Carpentries][cp-site] agrees to abide by
+このプロジェクトに貢献することにより、 自身が提供したコンテンツを[私達のライセンス](License.md)に基づき配布する事に同意するものとします。 ご協力と引き換えに、 私達はあなたが提供する変更点・問題点などを検討し、 できるだけ早くコミュニティーの一員になれるよう尽力いたします。 Everyone involved in [The Carpentries][cp-site] agrees to abide by
 our [code of conduct](CODE_OF_CONDUCT.md).
 
-### How to Contribute
+### 貢献する方法
 
-The easiest way to get started is to file an issue to tell us about a spelling
-mistake, some awkward wording, or a factual error. This is a good way to
-introduce yourself and to meet some of our community members.
+一番簡単に貢献する方法は、 誤字、言葉遣い、 間違った内容などを issue(イシュー)で報告する事です。 Issueを報告することによって、自分をコミュニティーに紹介し、 また、コミュニティーのメンバーと出会う良い機会にもなります。
 
 1. If you do not have a [GitHub][github] account, you can [send us comments by
-   email][contact]. However, we will be able to respond more quickly if you use
-   one of the other methods described below.
+   email][contact]. ですが、 以下の方法であればメールよりも早急に対応できる場合がありますので、そちらをお勧め致します。
 
-2. If you have a [GitHub][github] account, or are willing to [create
-   one][github-join], but do not know how to use Git, you can report problems
-   or suggest improvements by [creating an issue][repo-issues]. This allows us
-   to assign the item to someone and to respond to it in a threaded discussion.
+2. またはアカウントを[新たに作る][github-join]気がある方で、 あまりGitに詳しくない・使い慣れていない方は、 質問・提案などを\[新しいイシュー]\[new-issue]として開いて下さい。 イシューを開くことによって、コミュニティーから誰かをそのイシューに割り当て、 スレッド化したディスカッションとして質問・提案に応答させていただくことができます。
 
 3. If you are comfortable with Git, and would like to add or change material,
-   you can submit a pull request (PR). Instructions for doing this are
-   [included below](#using-github). For inspiration about changes that need to
+   you can submit a pull request (PR). プルリクエストを使った提出方法は、[下記に記載されています](#using-github)。 For inspiration about changes that need to
    be made, check out the [list of open issues][issues] across the Carpentries.
 
 Note: if you want to build the website locally, please refer to [The Workbench
 documentation][template-doc].
 
-### Where to Contribute
+### どこへ貢献するか
 
 1. If you wish to change this lesson, add issues and pull requests here.
 2. If you wish to change the template used for workshop websites, please refer
    to [The Workbench documentation][template-doc].
 
-### What to Contribute
+### 貢献していただきたい個所
 
-There are many ways to contribute, from writing new exercises and improving
-existing ones to updating or filling in the documentation and submitting [bug
-reports][issues] about things that do not work, are not clear, or are missing.
-If you are looking for ideas, please see [the list of issues for this
-repository][repo-issues], or the issues for [Data Carpentry][dc-issues],
-[Library Carpentry][lc-issues], and [Software Carpentry][swc-issues] projects.
+新しい例を書く、すでにある例の改善、 ドキュメントのアップデート、 不明瞭な点、欠点、「動作に不具合がある」といった \[バグの報告]\[new-issue]など、 様々な方法で貢献していただくことができます。
+どういったイシューを開いたら良いかわからない場合は、 [このリポジトリのイシュー][issues]、 [Data Carpentryのイシュー][dc-issues]、 もしくは[Software Carpentryのイシュー][swc-issues]を見てみて下さい。
 
 Comments on issues and reviews of pull requests are just as welcome: we are
-smarter together than we are on our own. **Reviews from novices and newcomers
-are particularly valuable**: it's easy for people who have been using these
-lessons for a while to forget how impenetrable some of this material can be, so
-fresh eyes are always welcome.
+smarter together than we are on our own. すでにあるイシューへのコメントや、プルリクエストのレビューなども歓迎いたします。 皆さんで協力したほうが、良い結果につながります。 また、新しく加入された方の意見やレビューなどは特に重要視しています。 レッスンの資料を幾度となく見てきた方は特に見落としがちなのですが、 私達が提供している資料・コンテンツは、初めて資料を見る方などには、理解するのに時間が掛かる場合があるので、 通常とは違う視点からの意見は大変貴重なのです。
 
-### What _Not_ to Contribute
+### 貢献していただきたくない個所
 
 Our lessons already contain more material than we can cover in a typical
 workshop, so we are usually _not_ looking for more concepts or tools to add to
@@ -72,34 +51,27 @@ platform. Our workshops typically contain a mixture of Windows, macOS, and
 Linux users; in order to be usable, our lessons must run equally well on all
 three.
 
-### Using GitHub
+### GitHubの使い方
 
-If you choose to contribute via GitHub, you may want to look at [How to
-Contribute to an Open Source Project on GitHub][how-contribute]. In brief, we
-use [GitHub flow][github-flow] to manage changes:
+GitHubから資料を提供したい場合は、 [GitHubでオープンソース・プロジェクトに貢献する方法][how-contribute] を参照して下さい。 私達は[GitHub flow][github-flow]を使って変更点などを管理しています：
 
-1. Create a new branch in your desktop copy of this repository for each
-   significant change.
-2. Commit the change in that branch.
-3. Push that branch to your fork of this repository on GitHub.
-4. Submit a pull request from that branch to the [upstream repository][repo].
-5. If you receive feedback, make changes on your desktop and push to your
-   branch on GitHub: the pull request will update automatically.
+1. 自身が持っているオリジナルのリポジトリのコピー(フォーク)に新しいブランチを作り、そのブランチで内容を変更します。
+2. 作ったブランチ内で変更点をコミットします。
+3. そのブランチをGitHubのフォークにプッシュします。
+4. 自身のフォークからオリジナルの[リポジトリ][repo]へプルリクエストを提出します。
+5. 頂いたコメントやレビューからの提案で、更に内容を変更する場合は、 自分のブランチで内容を変更し、GitHubのフォークにプッシュして下さい： 自動的にプルリクエストの内容がアップデートされます。
 
 NB: The published copy of the lesson is usually in the `main` branch.
 
-Each lesson has a team of maintainers who review issues and pull requests or
-encourage others to do so. The maintainers are community volunteers, and have
-final say over what gets merged into the lesson.
+全てのレッスンには二人のメインテイナーがおり、彼・彼女らがイシューやプルリクエストを管理・見直す、 もしくはその他のメンバーに、一緒に見直すように声をかけます。 メインテイナー達はコミュニティーのボランティアですので、 最終的に何を変更するかの決定権は、メインテイナーに委ねられています。
 
-### Other Resources
+### その他の資料
 
 The Carpentries is a global organisation with volunteers and learners all over
 the world. We share values of inclusivity and a passion for sharing knowledge,
 teaching and learning. There are several ways to connect with The Carpentries
 community listed at \<https\://carpentries.org/connect/> including via social
-media, slack, newsletters, and email lists. You can also [reach us by
-email][contact].
+media, slack, newsletters, and email lists. また、[メール][contact]からでもご連絡いただけます。
 
 [repo]: https://github.com/swcarpentry/r-novice-gapminder
 [repo-issues]: https://github.com/swcarpentry/r-novice-gapminder/issues
