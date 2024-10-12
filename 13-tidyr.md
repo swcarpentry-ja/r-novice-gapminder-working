@@ -19,13 +19,12 @@ source: Rmd
 
 
 
-Researchers often want to reshape their data frames from 'wide' to 'longer'
-layouts, or vice-versa. The 'long' layout or format is where:
+研究者には「横長」データを「縦長」データに（又はその逆を）したいと 思うことがよくあります。 「縦長」形式とは：
 
-- each column is a variable
-- each row is an observation
+- 各列が変数
+- 各行が観測値
 
-In the purely 'long' (or 'longest') format, you usually have 1 column for the observed variable and the other columns are ID variables.
+「縦長」形式では、普通、観測値は１列で、残りの列はIDの変数になります。
 
 For the 'wide' format each row is often a site/subject/patient and you have
 multiple observation variables containing the same type of data. These can be
@@ -42,10 +41,9 @@ to its shape. However, the long format is more machine readable and is closer
 to the formatting of databases. The ID variables in our data frames are similar to
 the fields in a database and observed variables are like the database values.
 
-## Getting started
+## 手始めに
 
-First install the packages if you haven't already done so (you probably
-installed dplyr in the previous lesson):
+まず、パッケージをインストールしましょう、もしまだやっていなければですが （おそらく、前の dplyr のレッスンで、インストールしているかと思います）：
 
 
 ``` r
@@ -53,7 +51,7 @@ installed dplyr in the previous lesson):
 #install.packages("dplyr")
 ```
 
-Load the packages
+パーッケージをロードしましょう。
 
 
 ``` r
@@ -61,7 +59,7 @@ library("tidyr")
 library("dplyr")
 ```
 
-First, lets look at the structure of our original gapminder data frame:
+始めに、そもそもの gapminder データフレームのデータ構造を見てみましょう：
 
 
 ``` r
@@ -80,17 +78,15 @@ str(gapminder)
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Challenge 1
+## チャレンジ１
 
-Is gapminder a purely long, purely wide, or some intermediate format?
+gapminder は、横長のみ、縦長のみ、又はその中間の形式でしょうか。
 
 :::::::::::::::  solution
 
-## Solution to Challenge 1
+## チャレンジ３の解答
 
-The original gapminder data.frame is in an intermediate format. It is not
-purely long since it had multiple observation variables
-(`pop`,`lifeExp`,`gdpPercap`).
+チャレンジ１の解答 元々の gapminder data.frame は、中間の形式です。 複数の観測変数（`pop`,`lifeExp`,`gdpPercap`）があるため、 縦長のみのデータとは言えません。
 
 :::::::::::::::::::::::::
 
@@ -114,7 +110,7 @@ we first manipulate the data either by grouping (see the lesson on `dplyr`), or
 we change the structure of the data frame.  **Note:** Some plotting functions in
 R actually work better in the wide format data.
 
-## From wide to long format with pivot\_longer()
+## gather() を使って、横長から縦長形式へ
 
 Until now, we've been using the nicely formatted original gapminder dataset, but
 'real' data (i.e. our own research data) will never be so well organized. Here
@@ -123,9 +119,7 @@ let's start with the wide formatted version of the gapminder dataset.
 > Download the wide version of the gapminder data from [this link to a csv file](data/gapminder_wide.csv)
 > and save it in your data folder.
 
-We'll load the data file and look at it. Note: we don't want our continent and
-country columns to be factors, so we use the stringsAsFactors argument for
-`read.csv()` to disable that.
+We'll load the data file and look at it. データファイルをロードして見てみましょう。 注：大陸と国の列は、因子型にはしたくありません。 そこで、そうならないように、`read.csv()`に stringsAsFactors 引数を使いましょう。
 
 
 ``` r
@@ -199,9 +193,7 @@ tibble [5,112 × 4] (S3: tbl_df/tbl/data.frame)
  $ obs_values  : num [1:5112] 9279525 10270856 11000948 12760499 14760787 ...
 ```
 
-Here we have used piping syntax which is similar to what we were doing in the
-previous lesson with dplyr. In fact, these are compatible and you can use a mix
-of tidyr and dplyr functions by piping them together.
+ここでは、以前 dplyr のレッスンの中で行ったようなパイプの書き方を使いました。 実は、tidyr と dplyr 関数は互換性があり、パイプで繋ぐことで、一緒に使うことが できるのです。
 
 We first provide to `pivot_longer()` a vector of column names that will be
 pivoted into longer format. We could type out all the observation variables, but
@@ -235,9 +227,7 @@ tibble [5,112 × 4] (S3: tbl_df/tbl/data.frame)
  $ obs_values  : num [1:5112] 2449 3014 2551 3247 4183 ...
 ```
 
-That may seem trivial with this particular data frame, but sometimes you have 1
-ID variable and 40 observation variables with irregular variable names. The
-flexibility is a huge time saver!
+これは、このデータフレームでは、取るに足らないことかもしれませんが、 １つの ID 変数と40の変則的な変数名を持つ観測変数がある場合も時にはあります。 柔軟性があることで、かなり時間が節約できるのです！
 
 Now `obstype_year` actually contains 2 pieces of information, the observation
 type (`pop`,`lifeExp`, or `gdpPercap`) and the `year`. We can use the
@@ -251,14 +241,14 @@ gap_long$year <- as.integer(gap_long$year)
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Challenge 2
+## チャレンジ２
 
 Using `gap_long`, calculate the mean life expectancy, population, and gdpPercap for each continent.
 **Hint:** use the `group_by()` and `summarize()` functions we learned in the `dplyr` lesson
 
 :::::::::::::::  solution
 
-## Solution to Challenge 2
+## チャレンジ３の解答
 
 
 ``` r
@@ -297,7 +287,7 @@ gap_long %>% group_by(continent, obs_type) %>%
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## From long to intermediate format with pivot\_wider()
+## spread() で縦長から中間形式へ
 
 It is always good to check work. So, let's use the second `pivot` function, `pivot_wider()`, to 'widen' our observation variables back out.  `pivot_wider()` is the opposite of `pivot_longer()`, making a dataset wider by increasing the number of columns and decreasing the number of rows. We can use `pivot_wider()` to pivot or reshape our `gap_long` to the original intermediate format or the widest format. Let's start with the intermediate format.
 
@@ -342,9 +332,7 @@ names(gapminder)
 [1] "country"   "year"      "pop"       "continent" "lifeExp"   "gdpPercap"
 ```
 
-Now we've got an intermediate data frame `gap_normal` with the same dimensions as
-the original `gapminder`, but the order of the variables is different. Let's fix
-that before checking if they are `all.equal()`.
+元々の `gapminder` と同じ次元を持つ、中間形式のデータフレーム `gap_normal` ができましたが、 変数の順番が違います。 このふたつが、 `all.equal()` かを調べる前に、これを直しましょう。
 
 
 ``` r
@@ -392,8 +380,7 @@ head(gapminder)
 6 Afghanistan 1977 14880372      Asia  38.438  786.1134
 ```
 
-We're almost there, the original was sorted by `country`, then
-`year`.
+もうすぐです。元々のは、 `country` 、 `continent` 、そして `year` でソートされていました。
 
 
 ``` r
@@ -406,8 +393,7 @@ all.equal(gap_normal, gapminder)
 [2] "Attributes: < Component \"class\": 1 string mismatch >"                                
 ```
 
-That's great! We've gone from the longest format back to the intermediate and we
-didn't introduce any errors in our code.
+That's great! すばらしい！一番縦に長い形式から、中間形式に戻し、コードにエラーが でることもありませんでした。
 
 Now let's convert the long all the way back to the wide. In the wide format, we
 will keep country and continent as ID variables and pivot the observations
@@ -444,9 +430,7 @@ tibble [5,112 × 3] (S3: tbl_df/tbl/data.frame)
  $ obs_values: num [1:5112] 2449 3014 2551 3247 4183 ...
 ```
 
-Using `unite()` we now have a single ID variable which is a combination of
-`continent`,`country`,and we have defined variable names. We're now ready to
-pipe in `pivot_wider()`
+`unite()` を使い、`continent`と`country`を組み合わせ、ID 変数をひとつ作り、 変数名を定義しました。 `spread()` でパイプを使う準備が整いました。
 
 
 ``` r
@@ -500,14 +484,14 @@ tibble [142 × 37] (S3: tbl_df/tbl/data.frame)
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Challenge 3
+## チャレンジ３
 
-Take this 1 step further and create a `gap_ludicrously_wide` format data by pivoting over countries, year and the 3 metrics?
-**Hint** this new data frame should only have 5 rows.
+この一つ先に進み、 `gap_ludicrously_wide` を作り、国、年及び３つの行列に展開したデータを作りましょう。
+ヒント この新しいデータフレームには、５行しかありません。
 
 :::::::::::::::  solution
 
-## Solution to Challenge 3
+## チャレンジ３の解答
 
 
 ``` r
@@ -520,8 +504,7 @@ gap_ludicrously_wide <- gap_long %>%
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Now we have a great 'wide' format data frame, but the `ID_var` could be more
-usable, let's separate it into 2 variables with `separate()`
+今、とても '横長な' 形式のデータフレームがありますが、 `ID_var` は、より使えるようにできるはずです。 `separate()` を使って、２変数に分けてみましょう。
 
 
 ``` r
@@ -585,9 +568,9 @@ all.equal(gap_wide, gap_wide_betterID)
 [2] "Attributes: < Component \"class\": 1 string mismatch >"                                
 ```
 
-There and back again!
+そこにまた戻りました！
 
-## Other great resources
+## その他役に立つ資料
 
 - [R for Data Science](https://r4ds.hadley.nz/) (online book)
 - [Data Wrangling Cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf) (pdf file)
@@ -601,5 +584,3 @@ There and back again!
 - Use `pivot_wider()` to go from long to wider layout.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-

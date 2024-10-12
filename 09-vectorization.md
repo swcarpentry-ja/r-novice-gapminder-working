@@ -1,5 +1,5 @@
 ---
-title: Vectorization
+title: ベクトル化
 teaching: 10
 exercises: 15
 source: Rmd
@@ -19,10 +19,7 @@ source: Rmd
 
 
 
-Most of R's functions are vectorized, meaning that the function will
-operate on all elements of a vector without needing to loop through
-and act on each element one at a time. This makes writing code more
-concise, easy to read, and less error prone.
+Rの関数はほとんどがベクトル化されており、関数はベクトルの全ての要素を最初から操作してくれるので、ベクトルの要素ごとにいちいちループする必要がありません。 おかげで簡潔で読み易く、エラーの少ないコードを書くことができます。
 
 
 ``` r
@@ -34,9 +31,9 @@ x * 2
 [1] 2 4 6 8
 ```
 
-The multiplication happened to each element of the vector.
+積はベクトルの要素ごとに実行されました。
 
-We can also add two vectors together:
+2つのベクトルを足し合わせることもできます:
 
 
 ``` r
@@ -48,7 +45,7 @@ x + y
 [1]  7  9 11 13
 ```
 
-Each element of `x` was added to its corresponding element of `y`:
+この場合 `x` の各要素が対応する `y`の要素に足されます。
 
 
 ``` r
@@ -88,25 +85,21 @@ sum_xy
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Challenge 1
+## チャレンジ１
 
-Let's try this on the `pop` column of the `gapminder` dataset.
+`gapminder` データセットの `pop` 列でこれに挑戦してみましょう。
 
-Make a new column in the `gapminder` data frame that
-contains population in units of millions of people.
-Check the head or tail of the data frame to make sure
-it worked.
+`gapminder` データフレームに百万人単位の人口を示す列を追加しましょう。
+データフレームの先頭か最後を確認して、追加に成功したか確認しましょう。
 
 :::::::::::::::  solution
 
-## Solution to challenge 1
+## チャレンジ８の解答 1
 
-Let's try this on the `pop` column of the `gapminder` dataset.
+`gapminder` データセットの `pop` 列でこれに挑戦してみましょう。
 
-Make a new column in the `gapminder` data frame that
-contains population in units of millions of people.
-Check the head or tail of the data frame to make sure
-it worked.
+`gapminder` データフレームに百万人単位の人口を示す列を追加しましょう。
+データフレームの先頭か最後を確認して、追加に成功したか確認しましょう。
 
 
 ``` r
@@ -130,20 +123,17 @@ head(gapminder)
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Challenge 2
+## チャレンジ２
 
-On a single graph, plot population, in
-millions, against year, for all countries. Do not worry about
-identifying which country is which.
+一つの図に、100万人単位の人口を年ごとにプロットしてみましょう。 国ごとの区別はつかなくていいです。
 
-Repeat the exercise, graphing only for China, India, and
-Indonesia. Again, do not worry about which is which.
+練習を繰り返して、中国とインドとインドネシアだけを含む図を 作ってみましょう。 先程と同じく、国ごとの区別はつかなくていいです。
 
 :::::::::::::::  solution
 
-## Solution to challenge 2
+## チャレンジ８の解答
 
-Refresh your plotting skills by plotting population in millions against year.
+チャレンジの解答 100万人単位の人口を年ごとにプロットして、作図方法を復習しましょう。
 
 
 ``` r
@@ -166,10 +156,9 @@ ggplot(gapminder[gapminder$country %in% countryset,],
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Comparison operators, logical operators, and many functions are also
-vectorized:
+比較演算子や論理演算子に加え、多くの関数もベクトル化されています。
 
-**Comparison operators**
+**比較演算子**
 
 
 ``` r
@@ -180,31 +169,31 @@ x > 2
 [1] FALSE FALSE  TRUE  TRUE
 ```
 
-**Logical operators**
+**論理演算子**
 
 
 ``` r
-a <- x > 3  # or, for clarity, a <- (x > 3)
-a
+a <- x 3 # より明確な書き方は a <- (x 3) a
 ```
 
-``` output
-[1] FALSE FALSE FALSE  TRUE
+``` error
+Error in parse(text = input): <text>:1:8: unexpected numeric constant
+1: a <- x 3
+           ^
 ```
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
-## Tip: some useful functions for logical vectors
+## Tip: 論理ベクトルに使える便利な関数
 
-`any()` will return `TRUE` if *any* element of a vector is `TRUE`.  
-`all()` will return `TRUE` if *all* elements of a vector are `TRUE`.
-
+- `any()` はベクトルの要素の中に一つでも `TRUE` があれば `TRUE` を返します。
+- `all()` はベクトルの要素が 全て `TRUE` であれば `TRUE` を返します。
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Most functions also operate element-wise on vectors:
+ほとんどの関数はベクトルを要素ごとに処理します。
 
-**Functions**
+**関数**
 
 
 ``` r
@@ -216,7 +205,7 @@ log(x)
 [1] 0.0000000 0.6931472 1.0986123 1.3862944
 ```
 
-Vectorized operations work element-wise on matrices:
+ベクトル化された操作は行列を要素ごとに処理します:
 
 
 ``` r
@@ -233,9 +222,9 @@ m * -1
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
-## Tip: element-wise vs. matrix multiplication
+## Tip: 要素ごとの積 vs. 行列の積
 
-Very important: the operator `*` gives you element-wise multiplication!
+非常に重要: ` ` 演算子は要素ごとの積を行います！
 To do matrix multiplication, we need to use the `%*%` operator:
 
 
@@ -259,17 +248,15 @@ matrix(1:4, nrow=1) %*% matrix(1:4, ncol=1)
 [1,]   30
 ```
 
-For more on matrix algebra, see the [Quick-R reference
-guide](https://www.statmethods.net/advstats/matrix.html)
-
+更に行列代数について知るには [Quick-R reference guide](https://www.statmethods.net/advstats/matrix.html) を参照して下さい
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Challenge 3
+## チャレンジ３
 
-Given the following matrix:
+以下のリストがあるとします：
 
 
 ``` r
@@ -295,9 +282,9 @@ Did you get the output you expected? If not, ask a helper!
 
 :::::::::::::::  solution
 
-## Solution to challenge 3
+## チャレンジ３の解答
 
-Given the following matrix:
+以下のリストがあるとします：
 
 
 ``` r
@@ -350,36 +337,31 @@ Write down what you think will happen when you run:
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Challenge 4
+## チャレンジ４
 
-We're interested in looking at the sum of the
-following sequence of fractions:
+以下の分数の数列の総和が知りたいとします: ~~~ x:
 
 
 ``` r
  x = 1/(1^2) + 1/(2^2) + 1/(3^2) + ... + 1/(n^2)
 ```
 
-This would be tedious to type out, and impossible for high values of
-n.  Use vectorisation to compute x when n=100. What is the sum when
-n=10,000?
+- /(n^) ~~~  これをタイプするのは面倒な上に、nが大きいと不可能です。  ベクトル化を用いて n = 100 の場合を計算しましょう。 n = 10,000 の時の総和はいくつでしょうか？
 
 :::::::::::::::  solution
 
-## Challenge 4
+## チャレンジ４
 
-We're interested in looking at the sum of the
-following sequence of fractions:
+以下の分数の数列の総和が知りたいとします: ~~~ x:
 
 
 ``` r
  x = 1/(1^2) + 1/(2^2) + 1/(3^2) + ... + 1/(n^2)
 ```
 
-This would be tedious to type out, and impossible for
-high values of n.
-Can you use vectorisation to compute x, when n=100?
-How about when n=10,000?
+- /(n^) ~~~  これをタイプするのは面倒な上に、nが大きいと不可能です。
+  ベクトル化を用いて n = 100 の場合を計算しましょう。
+  n = 10,000 の時の総和はいくつでしょうか？
 
 
 ``` r
@@ -447,7 +429,7 @@ inverse_sum_of_squares(n)
 ## Tip: Operations on vectors of unequal length
 
 Operations can also be performed on vectors of unequal length, through
-a process known as *recycling*. This process automatically repeats the smaller vector
+a process known as _recycling_. This process automatically repeats the smaller vector
 until it matches the length of the larger vector. R will provide a warning
 if the larger vector is not a multiple of the smaller vector.
 
@@ -485,5 +467,3 @@ y:  1  2  3  4  5  6  7
 - Use vectorized operations instead of loops.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-

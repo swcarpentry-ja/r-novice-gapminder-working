@@ -11,7 +11,7 @@ not).
 
 ## Lesson Plans
 
-The lesson contains much more material than can be taught in a day.
+レッスンには、1日に教えることができる以上の素材が含まれています。
 Instructors will need to pick an appropriate subset of episodes to use
 in a standard one day course.
 
@@ -19,7 +19,7 @@ Some suggested paths through the material are:
 
 (suggested by [@liz-is](https://github.com/swcarpentry/r-novice-gapminder/issues/104#issuecomment-276529213))
 
-- 01 Introduction to R and RStudio
+- RとRStudio入門
 - 04 Data Structures
 - 05 Exploring Data Frames ("Realistic example" section onwards)
 - 08 Creating Publication-Quality Graphics with ggplot2
@@ -29,20 +29,20 @@ Some suggested paths through the material are:
 
 (suggested by [@naupaka](https://github.com/swcarpentry/r-novice-gapminder/issues/104#issuecomment-312547509))
 
-- 01 Introduction to R and RStudio
+- RとRStudio入門
 - 02 Project Management With RStudio
 - 03 Seeking Help
 - 04 Data Structures
 - 05 Exploring Data Frames
 - 06 Subsetting Data
-- 09 Vectorization
-- 08 Creating Publication-Quality Graphics with ggplot2 *OR*
+- ベクトル化
+- 08 Creating Publication-Quality Graphics with ggplot2 _OR_
   13 Dataframe Manipulation with dplyr
 - 15 Producing Reports With knitr
 
 A half day course could consist of (suggested by [@karawoo](https://github.com/swcarpentry/r-novice-gapminder/issues/104#issuecomment-277599864)):
 
-- 01 Introduction to R and RStudio
+- RとRStudio入門
 - 04 Data Structures (only creating vectors with `c()`)
 - 05 Exploring Data Frames ("Realistic example" section onwards)
 - 06 Subsetting Data (excluding factor, matrix and list subsetting)
@@ -82,7 +82,7 @@ cats <- data.frame(coat = c("calico", "black", "tabby"),
 ```
 
 This option can be turned off and on in the following menu setting:
-Tools -> Global Options -> Code -> Display -> Enable preview of named and hexadecimal colors (under "Syntax") 
+Tools -> Global Options -> Code -> Display -> Enable preview of named and hexadecimal colors (under "Syntax")
 
 ## Pulling in Data
 
@@ -130,6 +130,3 @@ debug and recover from unexpected errors.
 
 [gapminder-data]: data/gapminder_data.csv
 [gapminder-data-wide]: data/gapminder_wide.csv
-
-
-

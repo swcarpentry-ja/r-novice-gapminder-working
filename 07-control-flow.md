@@ -21,29 +21,20 @@ source: Rmd
 
 
 
-Often when we're coding we want to control the flow of our actions. This can be done
-by setting actions to occur only if a condition or a set of conditions are met.
-Alternatively, we can also set an action to occur a particular number of times.
+コードを書く際、実行の流れを制御する必要がよくあります。 これは、ある条件、または一連の条件が満たされたときに実行されるようにすればできます。
+あるいは、決まった回数実行されるよう設定することもできます。
 
 There are several ways you can control flow in R.
 For conditional statements, the most commonly used approaches are the constructs:
 
 
 ``` r
-# if
-if (condition is true) {
+~~~ # if if (condition is true) {
   perform action
-}
-
-# if ... else
-if (condition is true) {
-  perform action
-} else {  # that is, if the condition is false,
-  perform alternative action
-}
+} # if ... else if (condition is true) { # 条件が満たされた場合 アクションを行う } else { # つまり、条件が満たされなかった場合 別のアクションを行う } ~~~
 ```
 
-Say, for example, that we want R to print a message if a variable `x` has a particular value:
+例えばRに、もし変数 `x` が特定の値を持っていた場合、メッセージを表示させたいとします。
 
 
 ``` r
@@ -77,7 +68,7 @@ if (x >= 10) {
 [1] "x is less than 10"
 ```
 
-You can also test multiple conditions by using `else if`.
+`else if` を使うと、複数の条件を試すこともできます。
 
 
 ``` r
@@ -98,7 +89,7 @@ if (x >= 10) {
 
 **Important:** when R evaluates the condition inside `if()` statements, it is
 looking for a logical element, i.e., `TRUE` or `FALSE`. This can cause some
-headaches for beginners. For example:
+headaches for beginners. 例えば：
 
 
 ``` r
@@ -114,7 +105,7 @@ if (x) {
 [1] "4 does not equal 3"
 ```
 
-As we can see, the not equal message was printed because the vector x is `FALSE`
+ここで見られるように、ベクトル x が `FALSE` であるため、不等号のメッセージが表示されました。
 
 
 ``` r
@@ -128,7 +119,7 @@ x
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Challenge 1
+## チャレンジ１
 
 Use an `if()` statement to print a suitable message
 reporting whether there are any records from 2002 in
@@ -137,7 +128,7 @@ Now do the same for 2012.
 
 :::::::::::::::  solution
 
-## Solution to Challenge 1
+## チャレンジ３の解答
 
 We will first see a solution to Challenge 1 which does not use the `any()` function.
 We first obtain a logical vector describing which element of `gapminder$year` is equal to `2002`:
@@ -183,7 +174,7 @@ if(any(gapminder$year == 2002)){
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Did anyone get a warning message like this?
+次のような警告メッセージをもらった人はいますか？
 
 
 ``` error
@@ -230,18 +221,15 @@ ifelse(y < 0, "y is a negative number", "y is either positive or zero")
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
-## Tip: `any()` and `all()`
+## ヒント：`any()` と `all()`
 
-The `any()` function will return `TRUE` if at least one
-`TRUE` value is found within a vector, otherwise it will return `FALSE`.
-This can be used in a similar way to the `%in%` operator.
-The function `all()`, as the name suggests, will only return `TRUE` if all values in
-the vector are `TRUE`.
-
+`any()` 関数は、ベクトルの中に少なくとも１つ `TRUE` の値がある場合、 `TRUE` を返し、 そうでない場合は、 `FALSE` を返します。
+これは、 `%in%` 演算子でも同様に使えます。
+関数 `all()` は、その名前が示唆しているように、ベクトル内の全ての値が `TRUE` である時のみ、 `TRUE` となります。
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Repeating operations
+## 繰り返し行う処理
 
 If you want to iterate over
 a set of values, when the order of iteration is important, and perform the
@@ -255,7 +243,7 @@ previous iterations. If the order of iteration is not important, then you
 should learn about vectorized alternatives, such as the `purrr` package, as they
 pay off in computational efficiency.
 
-The basic structure of a `for()` loop is:
+`for()` ループの基本構造は：
 
 
 ``` r
@@ -264,7 +252,7 @@ for (iterator in set of values) {
 }
 ```
 
-For example:
+例えば：
 
 
 ``` r
@@ -286,11 +274,9 @@ for (i in 1:10) {
 [1] 10
 ```
 
-The `1:10` bit creates a vector on the fly; you can iterate
-over any other vector as well.
+`1:10` の部分は、ベクトルをその場で作るものです。 他のベクトルの中身を繰り返すこともできます。
 
-We can use a `for()` loop nested within another `for()` loop to iterate over two things at
-once.
+`for()` ループを、もうひとつの `for()` ループと入れ子となる形にすれば、 ２つ同時に繰り返すこともできます。
 
 
 ``` r
@@ -334,7 +320,7 @@ index (`j`) iterates through its full set of indices. Once the indices of `j`
 have been iterated through, then `i` is incremented. This process continues
 until the last index has been used for each `for()` loop.
 
-Rather than printing the results, we could write the loop output to a new object.
+結果を表示させずに、ループの結果を新しいオブジェクトに書き込むこともできます。
 
 
 ``` r
@@ -354,13 +340,11 @@ output_vector
 [25] "5 e"
 ```
 
-This approach can be useful, but 'growing your results' (building
-the result object incrementally) is computationally inefficient, so avoid
-it when you are iterating through a lot of values.
+このアプローチが役に立つこともありますが、'結果を太らせる' （結果のオブジェクトを 徐々に積み上げる）と、演算する上で非効率になります。 ゆえに、多くの値の間を繰り返すときは避けましょう。
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
-## Tip: don't grow your results
+## ヒント：結果を太らせないようにしましょう
 
 One of the biggest things that trips up novices and
 experienced R users alike, is building a results object
@@ -373,11 +357,10 @@ So if you know the end result will be stored in a matrix like above,
 create an empty matrix with 5 row and 5 columns, then at each iteration
 store the results in the appropriate location.
 
-
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-A better way is to define your (empty) output object before filling in the values.
-For this example, it looks more involved, but is still more efficient.
+よりよい方法は、（空の）出力オブジェクトを、値を埋める前に宣言することです。
+この例では、より複雑に見えますが、より効率的です。
 
 
 ``` r
@@ -402,10 +385,9 @@ output_vector2
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
-## Tip: While loops
+## ヒント：while ループ
 
-Sometimes you will find yourself needing to repeat an operation as long as a certain
-condition is met. You can do this with a `while()` loop.
+時には、ある条件が満たされるまで繰り返す必要があります。 これは、 `while()` ループを使えばできます。
 
 
 ``` r
@@ -416,9 +398,8 @@ while(this condition is true){
 
 R will interpret a condition being met as "TRUE".
 
-As an example, here's a while loop
-that generates random numbers from a uniform distribution (the `runif()` function)
-between 0 and 1 until it gets one that's less than 0.1.
+```while(this condition is true) \~\~\~  例として、このwhileループは 一様分布（&#x60;runif()&#x60; 関数）から0.1よりも小さい数を得るまで、 ０から１の間で乱数を生成します。
+```
 
 ```r
 z <- 1
@@ -431,12 +412,11 @@ while(z > 0.1){
 `while()` loops will not always be appropriate. You have to be particularly careful
 that you don't end up stuck in an infinite loop because your condition is always met and hence the while statement never terminates.
 
-
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Challenge 2
+## チャレンジ２
 
 Compare the objects `output_vector` and
 `output_vector2`. Are they the same? If not, why not?
@@ -445,7 +425,7 @@ the same as `output_vector`?
 
 :::::::::::::::  solution
 
-## Solution to Challenge 2
+## チャレンジ３の解答
 
 We can check whether the two vectors are identical using the `all()` function:
 
@@ -507,15 +487,13 @@ output_matrix[j, i] <- temp_output
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Challenge 3
+## チャレンジ３
 
-Write a script that loops through the `gapminder` data by continent and prints out
-whether the mean life expectancy is smaller or larger than 50
-years.
+`gapminder` データを大陸ごとにループし、平均余命が50歳以上かどうかを表示する スクリプトを書きましょう。
 
 :::::::::::::::  solution
 
-## Solution to Challenge 3
+## チャレンジ３の解答
 
 **Step 1**:  We want to make sure we can extract all the unique values of the continent vector
 
@@ -525,11 +503,11 @@ gapminder <- read.csv("data/gapminder_data.csv")
 unique(gapminder$continent)
 ```
 
-**Step 2**: We also need to loop over each of these continents and calculate the average life expectancy for each `subset` of data.
-We can do that as follows:
+**Step 2**: We also need to loop over each of these continents and calculate the average life expectancy for each `subset` of data.```gapminder <- read.csv("data/gapminder\_data.csv") unique(gapminder$continent) \~\~\~ {: .language-r} 手順2 ：これらの大陸のそれぞれにループをし、その &#x60;部分集合&#x60; データごとに平均余命を出す必要があります。
+```
 
-1. Loop over each of the unique values of 'continent'
-2. For each value of continent, create a temporary variable storing that subset
+1. それは次のようにすればできます： 1.
+2. '大陸（continent）' の固有の値のそれぞれについてループする 2.
 3. Return the calculated life expectancy to the user by printing the output:
 
 
@@ -542,8 +520,8 @@ for (iContinent in unique(gapminder$continent)) {
 ```
 
 **Step 3**: The exercise only wants the output printed if the average life expectancy is less than 50 or greater than 50.
-So we need to add an `if()` condition before printing, which evaluates whether the calculated average life expectancy is above or below a threshold, and prints an output conditional on the result.
-We need to amend (3) from above:
+ゆえに、結果を表示させる前に `if` 条件をつけて、演算された平均余命が基準値以上か、基準値未満かを判別し、結果によって正しい出力を表示させる必要があります。
+これを踏まえて、上の (3) を修正する必要があります： 3a.
 
 3a. If the calculated life expectancy is less than some threshold (50 years), return the continent and a statement that life expectancy is less than threshold, otherwise return the continent and a statement that life expectancy is greater than threshold:
 
@@ -569,35 +547,19 @@ for (iContinent in unique(gapminder$continent)) {
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Challenge 4
+## チャレンジ４
 
-Modify the script from Challenge 3 to loop over each
-country. This time print out whether the life expectancy is
-smaller than 50, between 50 and 70, or greater than 70.
+チャレンジ３のスクリプトをそれぞれの国ごとにループする形に直してください。 今回は、平均余命は50歳未満か、50歳以上70歳未満か、70歳以上かを 表示しましょう。
 
 :::::::::::::::  solution
 
-## Solution to Challenge 4
+## チャレンジ３の解答
 
 We modify our solution to Challenge 3 by now adding two thresholds, `lowerThreshold` and `upperThreshold` and extending our if-else statements:
 
 
 ``` r
- lowerThreshold <- 50
- upperThreshold <- 70
-
-for (iCountry in unique(gapminder$country)) {
-    tmp <- mean(gapminder[gapminder$country == iCountry, "lifeExp"])
-
-    if(tmp < lowerThreshold) {
-        cat("Average Life Expectancy in", iCountry, "is less than", lowerThreshold, "\n")
-    } else if(tmp > lowerThreshold && tmp < upperThreshold) {
-        cat("Average Life Expectancy in", iCountry, "is between", lowerThreshold, "and", upperThreshold, "\n")
-    } else {
-        cat("Average Life Expectancy in", iCountry, "is greater than", upperThreshold, "\n")
-    }
-    rm(tmp)
-}
+チャレンジ４の解答 チャレンジ３の解答を、 `lowerThreshold` と `upperThreshold` の２つの基準値を加え、if-else 宣言を拡張する形で修正します： ~~~ lowerThreshold <- 50 upperThreshold <- 70 for( iCountry in unique(gapminder$country) ){ tmp <- mean(subset(gapminder, country==iCountry)$lifeExp) if(tmp < lowerThreshold){ cat("Average Life Expectancy in", iCountry, "is less than", lowerThreshold, "\\n") } else if(tmp lowerThreshold && tmp < upperThreshold){ cat("Average Life Expectancy in", iCountry, "is between", lowerThreshold, "and", upperThreshold, "\\n") } else{ cat("Average Life Expectancy in", iCountry, "is greater than", upperThreshold, "\\n") } rm(tmp) } ~~~ {: .language-r}
 ```
 
 :::::::::::::::::::::::::
@@ -606,7 +568,7 @@ for (iCountry in unique(gapminder$country)) {
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Challenge 5 - Advanced
+## チャレンジ5 - 上級
 
 Write a script that loops over each country in the `gapminder` dataset,
 tests whether the country starts with a 'B', and graphs life expectancy
@@ -614,9 +576,9 @@ against time as a line graph if the mean life expectancy is under 50 years.
 
 :::::::::::::::  solution
 
-## Solution for Challenge 5
+## チャレンジ３の解答
 
-We will use the `grep()` command that was introduced in the [Unix Shell lesson](https://swcarpentry.github.io/shell-novice/07-find.html) 
+We will use the `grep()` command that was introduced in the [Unix Shell lesson](https://swcarpentry.github.io/shell-novice/07-find.html)
 to find countries that start with "B."
 Lets understand how to do this first.
 Following from the Unix shell section we may be tempted to try the following
@@ -671,5 +633,3 @@ for (iCountry in candidateCountries) {
 - Use `for` to repeat operations.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-

@@ -1,5 +1,5 @@
 ---
-title: 'Reference'
+title: Reference
 ---
 
 ## Reference
@@ -10,11 +10,11 @@ title: 'Reference'
   (Ctrl+C) if you're using R from the shell.
 - Basic arithmetic operations follow standard order of precedence:
   - Brackets: `(`, `)`
-  - Exponents: `^` or `**`
-  - Divide: `/`
-  - Multiply: `*`
-  - Add: `+`
-  - Subtract: `-`
+  - 累乗：`^`か` `
+  - 割る：`/`
+  - 掛ける：` `
+  - 加える：`+`
+  - 引く：`-`
 - Scientific notation is available, e.g: `2e-3`
 - Anything to the right of a `#` is a comment, R will ignore this!
 - Functions are denoted by `function_name()`. Expressions inside the
@@ -27,7 +27,7 @@ title: 'Reference'
   stored in a variable named to the left.
 - `ls` lists all variables and functions you've created
 - `rm` can be used to remove them
-- When assigning values to function arguments, you *must* use `=`.
+- When assigning values to function arguments, you _must_ use `=`.
 
 ## [Project management with RStudio](episodes/02-project-intro.Rmd)
 
@@ -52,25 +52,25 @@ title: 'Reference'
 
 Individual values in R must be one of 5 **data types**, multiple values can be grouped in **data structures**.
 
-**Data types**
+**データ型**
 
 - `typeof(object)` gives information about an items data type.
 
 - There are 5 main data types:
-  
+
   - `?numeric` real (decimal) numbers
   - `?integer` whole numbers only
   - `?character` text
   - `?complex` complex numbers
   - `?logical` TRUE or FALSE values
-  
+
   **Special types:**
-  
+
   - `?NA` missing values
   - `?NaN` "not a number" for undefined values (e.g. `0/0`).
   - `?Inf`, `-Inf` infinity.
   - `?NULL` a data structure that doesn't exist
-  
+
   `NA` can occur in any atomic vector. `NaN`, and `Inf` can only
   occur in complex, integer or numeric type vectors. Atomic vectors
   are the building blocks for all other data structures. A `NULL` value
@@ -93,7 +93,7 @@ behaviour of R).
 **[Vectors](episodes/04-data-structures-part1.Rmd)**
 
 - `?vector()` All items in a vector must be the same type.
-- Items can be converted from one type to another using *coercion*.
+- Items can be converted from one type to another using _coercion_.
 - The concatenate function 'c()' will append items to a vector.
 - `seq(from=0, to=1, by=1)` will create a sequence of numbers.
 - Items in a vector can be named using the `names()` function.
@@ -144,22 +144,22 @@ behaviour of R).
 ## [Subsetting data](episodes/06-data-subsetting.Rmd)
 
 - Elements can be accessed by:
-  
+
   - Index
   - Name
-  - Logical vectors
+  - 論理演算子
 
 - `[` single square brackets:
-  
-  - *extract* single elements or *subset* vectors
+
+  - _extract_ single elements or _subset_ vectors
   - e.g.`x[1]` extracts the first item from vector x.
-  - *extract* single elements of a list. The returned value will be another `list()`.
-  - *extract* columns from a data.frame
+  - _extract_ single elements of a list. The returned value will be another `list()`.
+  - _extract_ columns from a data.frame
 
 - `[` with two arguments to:
-  
-  - *extract* rows and/or columns of
-    - matrices
+
+  - _extract_ rows and/or columns of
+    - 行列
     - data.frames
     - e.g. `x[1,2]` will extract the value in row 1, column 2.
     - e.g. `x[2,:]` will extract the entire second column of values.
@@ -198,27 +198,27 @@ behaviour of R).
   - order of layers matters!
   - `ggsave` to save a figure.
 
-## [Vectorization](episodes/09-vectorization.Rmd)
+## [ベクトル化]({}/09-vectorization/)
 
-- Most functions and operations apply to each element of a vector
-- `*` applies element-wise to matrices
-- `%*%` for true matrix multiplication
-- `any()` will return `TRUE` if any element of a vector is `TRUE`
-- `all()` will return `TRUE` if *all* elements of a vector are `TRUE`
+- - ほとんどの関数や演算はベクトルの要素ごとに実行されます。
+- - ` ` は行列に対して要素ごとに実行されます。
+- - 本来の行列の積を求めるには `% %` を使います。
+- - `any()` はベクトルの要素の中に一つでも `TRUE` があれば `TRUE` を返します。
+- - `all()` はベクトルの要素が 全て `TRUE` であれば `TRUE` を返します。
 
-## [Functions explained](episodes/10-functions.Rmd)
+## [関数について]({}/10-functions/)
 
-- `?"function"`
+- `?"関数"`
 - Put code whose parameters change frequently in a function, then call it with
   different parameter values to customize its behavior.
 - The last line of a function is returned, or you can use `return` explicitly
 - Any code written in the body of the function will preferably look for variables defined inside the function.
 - Document Why, then What, then lastly How (if the code isn't self explanatory)
 
-## [Writing data](episodes/11-writing-data.Rmd)
+## [データの出力]({}/11-writing-data/)
 
-- `write.table` to write out objects in regular format
-- set `quote=FALSE` so that text isn't wrapped in `"` marks
+- - `write.table` を使ってオブジェクトを一般的な形式に出力しましょう。
+- - `quote=FALSE` を指定して文字列が引用符に囲われないようにしましょう。
 
 ## [Dataframe manipulation with dplyr](episodes/12-dplyr.Rmd)
 
@@ -233,8 +233,8 @@ behaviour of R).
 ## [Dataframe manipulation with tidyr](episodes/13-tidyr.Rmd)
 
 - `library(tidyr)`
-- `?pivot_longer` convert data from *wide* to *long* format.
-- `?pivot_wider` convert data from *long* to *wide* format.
+- `?pivot_longer` convert data from _wide_ to _long_ format.
+- `?pivot_wider` convert data from _long_ to _wide_ format.
 - `?separate` split a single value into multiple values.
 - `?unite` merge multiple values into a single value.
 
@@ -242,10 +242,10 @@ behaviour of R).
 
 - Value of reproducible reports
 - Basics of Markdown
-- R code chunks
-- Chunk options
-- Inline R code
-- Other output formats
+- Rコードの「チャンク（塊）」
+- チャンクのオプション
+- 文中のRコード
+- その他の出力オプション
 
 ## [Best practices for writing good code](episodes/15-wrap-up.Rmd)
 
@@ -340,5 +340,3 @@ or something else. In R the command typeof() is used to query a variables type.
 [while loop]{#while-loop}
 :   A loop that keeps executing as long as some condition is true.
 See also: [for loop](#for-loop).
-
-
