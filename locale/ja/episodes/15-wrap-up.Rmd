@@ -17,13 +17,13 @@ source: Rmd
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Structure your project folder
+## プロジェクトフォルダーを構造化する
 
 Keep your project folder structured, organized and tidy, by creating subfolders for your code files, manuals, data, binaries, output plots, etc. It can be done completely manually, or with the help of RStudio's `New Project` functionality, or a designated package, such as `ProjectTemplate`.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
-## Tip: ProjectTemplate - a possible solution
+## ヒント：解決策の一つ：ProjectTemplate
 
 One way to automate the management of projects is to install the third-party package, `ProjectTemplate`.
 This package will set up an ideal directory structure for project management.
@@ -46,14 +46,12 @@ home page [ProjectTemplate](https://projecttemplate.net/index.html)
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Make code readable
+## コードを読めるようにする
 
 The most important part of writing code is making it readable and understandable.
-You want someone else to be able to pick up your code and be able to understand
-what it does: more often than not this someone will be you 6 months down the line,
-who will otherwise be cursing past-self.
+コードを書く際に一番重要なのが、読みやすくて理解のしやすくすることです。 他の誰が自分のコードを取り上げ、何をするものかを理解してもらわなければなりません。 多くの場合、この誰かさんは、6か月後の自分なので、もしコードが読めない、 理解できない場合は、昔の自分に悪態をつくことになるでしょう。
 
-## Documentation: tell us what and why, not how
+## 文書化：「どうやって」ではなく「なぜ」を伝えて下さい
 
 When you first start out, your comments will often describe what a command does,
 since you're still learning yourself and it can help to clarify concepts and
@@ -63,40 +61,27 @@ include comments that tell you _why_ you're solving a problem, and _what_ proble
 that is. The _how_ can come after that: it's an implementation detail you ideally
 shouldn't have to worry about.
 
-## Keep your code modular
+## コードをモジュール化しましょう
 
-Our recommendation is that you should separate your functions from your analysis
-scripts, and store them in a separate file that you `source` when you open the R
-session in your project. This approach is nice because it leaves you with an
-uncluttered analysis script, and a repository of useful functions that can be
-loaded into any analysis script in your project. It also lets you group related
-functions together easily.
+関数を分析スクリプトと分けて、別のファイルに保存しておき、 プロジェクトでRのセッションを開いたときに、 `source` することをオススメします。 このアプローチを取ると、分析スクリプトに無駄がなくなり、プロジェクト内のどの分析スクリプトでも 使える関数をストックする場所ができるので、便利です。 また、同じような関数をまとめるのが簡単になります。
 
-## Break down problem into bite size pieces
+## 問題をひとくち大に分ける
 
-When you first start out, problem solving and function writing can be daunting
-tasks, and hard to separate from code inexperience. Try to break down your
-problem into digestible chunks and worry about the implementation details later:
-keep breaking down the problem into smaller and smaller functions until you
-reach a point where you can code a solution, and build back up from there.
+初めは、問題解決と関数の記述は気が滅入るタスクで、 コードの経験不足とは別の問題として分けることができないと思うかもしれません。問題を消化できる塊に分け、 導入の詳細についての心配は後回しにしましょう： 問題をコードで解決できるまで、どんどん小さい関数に分けていきしましょう。 そして、解決されたものを積み上げていけば、問題を解決できるでしょう。
 
-## Know that your code is doing the right thing
+## コードが正しいことをしているか確かめましょう
 
-Make sure to test your functions!
+関数をテストすることを、くれぐれも忘れないように！
 
-## Don't repeat yourself
+## 同じことを繰り返さないようにしましょう
 
-Functions enable easy reuse within a project. If you see blocks of similar
-lines of code through your project, those are usually candidates for being
-moved into functions.
+Functions enable easy reuse within a project. 関数は、プロジェクトの中で簡単に再利用できます。もし、プロジェクトで同じようなコードの行の塊を 見つけたら、それらを関数に移す候補にしましょう。
 
-If your calculations are performed through a series of functions, then the
-project becomes more modular and easier to change. This is especially the case
-for which a particular input always gives a particular output.
+もし、計算が一連の関数で行われていた場合、プロジェクトはよりモジュール化され、変更するのが簡単になります。 これは、特定のインプットが必ず特定のアウトプットを返す場合など、特にそうです。
 
-## Remember to be stylish
+## 常にスタイリッシュであろうとする
 
-Apply consistent style to your code.
+自分のコードに一貫性のあるスタイルを適用しましょう。
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
@@ -104,7 +89,7 @@ Apply consistent style to your code.
 - Document what and why, not how.
 - Break programs into short single-purpose functions.
 - Write re-runnable tests.
-- Don't repeat yourself.
+- 同じことを繰り返さないようにしましょう.
 - Be consistent in naming, indentation, and other aspects of style.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
