@@ -143,7 +143,7 @@ sessionInfo()
 ```
 
 ``` output
-R version 4.4.1 (2024-06-14)
+R version 4.4.2 (2024-10-31)
 Platform: x86_64-pc-linux-gnu
 Running under: Ubuntu 22.04.5 LTS
 
@@ -164,12 +164,12 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 loaded via a namespace (and not attached):
- [1] assertthat_0.2.1 R6_2.5.1         xfun_0.47        magrittr_2.0.3  
- [5] glue_1.8.0       knitr_1.48       sandpaper_0.16.8 lifecycle_1.0.4 
- [9] xml2_1.3.6       ps_1.8.0         cli_3.6.3        processx_3.8.4  
-[13] callr_3.7.6      vctrs_0.6.5      renv_1.0.10      withr_3.0.1     
-[17] compiler_4.4.1   purrr_1.0.2      tools_4.4.1      tinkr_0.2.0.9000
-[21] evaluate_1.0.0   yaml_2.3.10      pegboard_0.7.6   rlang_1.1.4     
+ [1] assertthat_0.2.1  R6_2.5.1          xfun_0.47         magrittr_2.0.3   
+ [5] glue_1.8.0        knitr_1.48        sandpaper_0.16.10 lifecycle_1.0.4  
+ [9] xml2_1.3.6        ps_1.8.1          cli_3.6.3         processx_3.8.4   
+[13] callr_3.7.6       vctrs_0.6.5       renv_1.0.11       withr_3.0.2      
+[17] compiler_4.4.2    purrr_1.0.2       tools_4.4.2       tinkr_0.2.0.9001 
+[21] evaluate_1.0.0    yaml_2.3.10       pegboard_0.7.7    rlang_1.1.4      
 ```
 
 これは、現在使っている R のバージョン、そして読み込まれている全てのパッケージを表示させる関数です。 他の人が問題点を再現し、バグを見つける際にこの情報が役立つこともあります。
