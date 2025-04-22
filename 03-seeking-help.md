@@ -143,13 +143,13 @@ sessionInfo()
 ```
 
 ``` output
-R version 4.4.3 (2025-02-28)
+R version 4.5.0 (2025-04-11)
 Platform: x86_64-pc-linux-gnu
 Running under: Ubuntu 22.04.5 LTS
 
 Matrix products: default
 BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.10.0 
-LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.10.0
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.10.0  LAPACK version 3.10.0
 
 locale:
  [1] LC_CTYPE=C.UTF-8       LC_NUMERIC=C           LC_TIME=C.UTF-8       
@@ -169,8 +169,8 @@ loaded via a namespace (and not attached):
  [7] sandpaper_0.16.12.9000 lifecycle_1.0.4        xml2_1.3.8            
 [10] ps_1.9.1               cli_3.6.4              processx_3.8.6        
 [13] callr_3.7.6            vctrs_0.6.5            renv_1.1.4            
-[16] withr_3.0.2            compiler_4.4.3         purrr_1.0.4           
-[19] tools_4.4.3            tinkr_0.2.0.9002       evaluate_1.0.0        
+[16] withr_3.0.2            compiler_4.5.0         purrr_1.0.4           
+[19] tools_4.5.0            tinkr_0.2.0.9002       evaluate_1.0.0        
 [22] yaml_2.3.10            pegboard_0.7.9         rlang_1.1.6           
 ```
 
