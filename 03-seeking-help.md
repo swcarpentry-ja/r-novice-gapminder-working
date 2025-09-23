@@ -164,14 +164,14 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 loaded via a namespace (and not attached):
- [1] assertthat_0.2.1       R6_2.6.1               xfun_0.47             
- [4] magrittr_2.0.3         glue_1.8.0             knitr_1.48            
- [7] sandpaper_0.16.13.9000 lifecycle_1.0.4        xml2_1.3.8            
-[10] ps_1.9.1               cli_3.6.5              processx_3.8.6        
-[13] callr_3.7.6            vctrs_0.6.5            renv_1.1.4            
-[16] withr_3.0.2            compiler_4.5.1         purrr_1.0.4           
-[19] tools_4.5.1            tinkr_0.3.0            evaluate_1.0.0        
-[22] yaml_2.3.10            pegboard_0.7.9         rlang_1.1.6           
+ [1] assertthat_0.2.1      R6_2.6.1              xfun_0.47            
+ [4] magrittr_2.0.4        glue_1.8.0            knitr_1.48           
+ [7] sandpaper_0.17.2.9000 lifecycle_1.0.4       xml2_1.4.0           
+[10] ps_1.9.1              cli_3.6.5             processx_3.8.6       
+[13] callr_3.7.6           vctrs_0.6.5           renv_1.1.5           
+[16] withr_3.0.2           compiler_4.5.1        purrr_1.1.0          
+[19] tools_4.5.1           tinkr_0.3.0           evaluate_1.0.0       
+[22] yaml_2.3.10           pegboard_0.7.9        rlang_1.1.6          
 ```
 
 これは、現在使っている R のバージョン、そして読み込まれている全てのパッケージを表示させる関数です。 他の人が問題点を再現し、バグを見つける際にこの情報が役立つこともあります。
